@@ -1,0 +1,10 @@
+<button
+  (click)="onSubmit()"
+  class="btn btn-primary font-weight-bold px-9 py-4 w-100"
+  data-wizard-type="action-submit"
+  [disabled]="submitted || disabled"
+>
+  <span *ngIf="!submitted">{{ title }}</span>
+  <span *ngIf="!submitted"[inlineSVG]="iconUrl" class="svg-icon svg-icon-3 ms-2 me-0"></span>
+  <span *ngIf="submitted" class="spinner-border spinner-border-sm"></span>
+</button>

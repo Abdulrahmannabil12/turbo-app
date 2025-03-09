@@ -1,0 +1,24 @@
+<div class="row d-inline-block" style="margin-bottom: 15px">
+  <div class="col-md-12 input-group justify-content-center">
+    <input
+      type="file"
+      #file
+      [placeholder]="placeholder"
+      accept="application/pdf"
+      (change)="uploadFile($event.target.files)"
+      style="display: none"
+    />
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="file.click()"
+      style="margin: 15px"
+    >
+      <span class="glyphicon glyphicon-upload"></span> {{ placeholder }}
+    </button>
+  </div>
+     
+     <strong class="text-center text-danger float-right">{{message}}</strong>
+
+
+</div>

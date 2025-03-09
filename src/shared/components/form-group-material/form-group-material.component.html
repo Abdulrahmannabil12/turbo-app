@@ -1,0 +1,239 @@
+<!-- <mat-label
+  *ngIf="!isSearch"
+  style="
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+  "
+  [style.color]="isLogin ? 'black' : '#3E4450'"
+  [style.textAlign]="isRtl ? 'right' : 'left'"
+  >{{ fieldLabel }}</mat-label> -->
+
+<span
+  *ngIf="requiredField && !isControlTouchedValid() && !controlIsDisabled()"
+  matSuffix
+  title="Required"
+  [inlineSVG]="'./assets/media/svg/icons/General/asterisk.svg'"
+  [cacheSVG]="true"
+  class="ps-3 svg-icon svg-icon-ss svg-icon-primary"
+>
+</span>
+<mat-form-field
+  [color]="'Accent'"
+   *ngIf="inputType !== 'dropdown'"
+>
+ <mat-label   *ngIf="!isSearch"
+  style="
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+  "
+  [style.color]="isLogin ? 'black' : '#3E4450'"
+  [style.textAlign]="isRtl ? 'right' : 'left'"
+ >{{ fieldLabel }}</mat-label> 
+  <input
+    matInput
+    [formControlName]="controlName"
+    *ngIf="inputType !== 'textarea' && inputType !== 'dropdown'"
+    [required]="requiredField ? true : false"
+    [type]="inputType === 'password' && hide ? 'password' : ''"
+    placeholder="{{ inputPlaceholder }}"
+    [maxlength]="maxlengthLimit"
+    [OnlyNumber]="OnlyNumber"
+    [maxValue]="maxValue"
+    [minValue]="minValue"
+  />
+
+  <textarea
+    matInput
+    Input
+    rows="3"
+    cols="60"
+    [required]="requiredField ? true : false"
+    [mat-autosize]="false"
+    [maxlength]="150"
+    [formControlName]="controlName"
+    *ngIf="inputType === 'textarea'"
+    placeholder="{{ inputPlaceholder }}"
+  >
+  </textarea>
+  <span *ngIf="matSuffix" matSuffix style="font-weight: bold">{{
+    matSuffix
+  }}</span>
+  <span *ngIf="matPrefix" matPrefix></span>
+  <mat-icon
+    *ngIf="matPrefixIcon"
+    matPrefix
+    style="color: #667085 !important; font-size: 1.5em !important"
+    >{{ matPrefixIcon }}</mat-icon
+  >
+  <span
+    *ngIf="inputType === 'password'"
+    matSuffix
+    (click)="hide = !hide"
+    [inlineSVG]="
+      hide
+        ? './assets/media/svg/icons/General/visibility-off.svg'
+        : './assets/media/svg/icons/General/Visible.svg'
+    "
+    [cacheSVG]="true"
+    [ngClass]="{
+      'svg-icon-gray-700 svg-icon-2': hide,
+      'svg-icon-gray-900 svg-icon-2x': !hide
+    }"
+    class="svg-icon ms-1 me-3"
+  >
+  </span>
+  <mat-error
+    class="text-center"
+    *ngIf="FormGroup && controlHasError('ConfirmPassword')"
+  >
+    <strong> {{ fieldLabel }} doesn't match</strong>
+  </mat-error>
+  <mat-error
+    class="text-center"
+    *ngIf="FormGroup && controlHasError('required')"
+  >
+    <strong>  {{requiredError || fieldLabel +'is required'}}</strong>
+  </mat-error>
+  <mat-error class="text-center" *ngIf="FormGroup && isControlInvalid()">
+    <strong> {{ fieldLabel }} is Invalid </strong>
+  </mat-error>
+  <mat-error class="text-center" *ngIf="FormGroup && controlHasWhiteSpace()">
+    <strong>
+      {{ FormGroup && controlHasWhiteSpace() ? controlHasWhiteSpace() : "" }}
+    </strong>
+  </mat-error>
+  <mat-error
+    class="text-center"
+    *ngIf="FormGroup && controlHasError('minlength')"
+  >
+    <strong>
+      {{ fieldLabel }} should have at least {{ fieldMinLength }} symbols</strong
+    >
+  </mat-error>
+  <mat-error
+    class="text-center"
+    *ngIf="FormGroup && controlHasError('maxlength')"
+  >
+    <strong>
+      {{ fieldLabel }} should have maximum {{ fieldMaxLength }} symbols
+    </strong>
+  </mat-error>
+  <mat-error class="text-center" *ngIf="FormGroup && controlHasMinValError()">
+    <strong>
+      {{ fieldLabel }} should have minimum of {{ minimumValueNumber }}
+      {{ matSuffix ? matSuffix : "" }}
+    </strong>
+  </mat-error>
+
+  <mat-error class="text-center" *ngIf="FormGroup && controlHasMaxValError()">
+    <strong>
+      {{ fieldLabel }} Maximum Value of {{ MaximumValueNumber }}
+      {{ matSuffix ? matSuffix : "" }}
+    </strong>
+  </mat-error>
+  <mat-hint align="end">
+    <strong> {{ hint }}</strong>
+  </mat-hint>
+  <mat-icon
+    style="font-size: 2rem !important; color: #f29100 !important"
+    [@fade]="true"
+    *ngIf="
+      FormGroup && !inputPassword && !matSuffix && lazyInput && isControlValid()
+    "
+    matSuffix
+    >youtube_searched_for</mat-icon
+  >
+  <!-- <mat-icon
+    [@fade]="true"
+    class="valid-input"
+    *ngIf="
+      FormGroup &&
+      !inputPassword &&
+      !matSuffix &&
+      !lazyInput &&
+      isControlValid()
+    "
+    matSuffix
+    >check_circle_outline</mat-icon
+  >
+  <mat-icon
+    [@fade]="true"
+    *ngIf="
+      FormGroup &&
+      (isControlInvalid() ||
+        controlHasError('maxLength') ||
+        controlHasError('minlength') ||
+        controlHasError('required')) &&
+      !matSuffix
+    "
+    class="invalid-input"
+    matSuffix
+    #error
+    >error_outline</mat-icon
+  > -->
+</mat-form-field>
+
+<mat-form-field
+  [color]="'Accent'" 
+  *ngIf="inputType === 'dropdown' && dataSource"
+>
+ <mat-label   *ngIf="!isSearch"
+  style="
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+  "
+  [style.color]="isLogin ? 'black' : '#3E4450'"
+  [style.textAlign]="isRtl ? 'right' : 'left'"
+ >{{ fieldLabel }}</mat-label> 
+  <mat-select
+    (selectionChange)="onChangeValue($event)"
+    [formControlName]="controlName"
+    [required]="requiredField ? true : false"
+    [placeholder]="fieldLabel"
+  >
+    <mat-option [value]="data[fieldValue]" *ngFor="let data of dataSource" style="z-index:3000 !important">
+      <span style="font-size: 14px; line-height: 20px; letter-spacing: normal">
+        {{ data[fieldName] }}</span
+      >
+    </mat-option>
+  </mat-select>
+  <mat-hint>{{ hint }}</mat-hint>
+  <mat-error
+    class="text-center"
+    *ngIf="FormGroup && controlHasError('required')"
+  >
+    <strong> {{ fieldLabel }} is required</strong>
+  </mat-error>
+
+  <mat-error class="text-center" *ngIf="FormGroup && isControlInvalid()">
+    <strong> {{ fieldLabel }} is Invalid </strong>
+  </mat-error>
+
+  <!-- <mat-icon
+    [@fade]="true"
+    class="valid-input"
+    *ngIf="FormGroup && !inputPassword && isControlValid()"
+    matSuffix
+    >check_circle_outline</mat-icon
+  > -->
+  <!-- <mat-icon
+    [@fade]="true"
+    *ngIf="
+      FormGroup &&
+      (isControlInvalid() ||
+        controlHasError('maxLength') ||
+        controlHasError('minlength') ||
+        controlHasError('required'))
+    "
+    class="invalid-input"
+    matSuffix
+    #error
+    >error_outline</mat-icon
+  > -->
+</mat-form-field>

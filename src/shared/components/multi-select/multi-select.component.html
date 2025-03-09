@@ -1,0 +1,12 @@
+<ul class="checkboxsList">
+    <li *ngFor="let data of dataSource">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" [id]="data[name] + data[id]"
+                [name]="data[name] + data[id]">
+
+            <label class="custom-control-label" [for]="data[name] + data.id">
+                {{ data[name] }}
+            </label>
+        </div>
+    </li>
+</ul>

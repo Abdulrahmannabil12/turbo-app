@@ -1,0 +1,74 @@
+.mat-button-toggle-group {
+  border: none;
+  background-color: transparent;
+}
+.mat-button-toggle {
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid transparent !important;
+  transition: 0.5s linear;
+  .mat-button-toggle-label-content {
+    line-height: 40px;
+  }
+}
+.insource-btn.mat-button-toggle:not(.mat-button-toggle-checked) {
+  &:hover {
+    background-color: white !important;
+    border: 1px solid rgba(128, 128, 128, 0.192) !important;
+  }
+}
+.outsource-btn.mat-button-toggle:not(.mat-button-toggle-checked) {
+  &:hover {
+    background-color: #eeedf2 !important;
+  }
+}
+.mat-button-toggle-group:hover {
+  background: none !important;
+}
+.mat-button-toggle-checked {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #f29100 !important;
+  &:hover {
+    background: white !important;
+  }
+}
+
+.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover
+  .mat-button-toggle-focus-overlay {
+  opacity: 0 !important;
+}
+.insource-btn.mat-button-toggle-checked .mat-button-toggle-button {
+  color: #f29100;
+}
+.outsource-btn.mat-button-toggle-checked .mat-button-toggle-button {
+  color: #211c59;
+}
+.outsource-request {
+  transition: 0.4s linear;
+}
+.hide-row {
+  -webkit-animation: fadeOut linear 5s 1;
+  animation: fadeOut linear 5s 1;
+}
+.show-row {
+  -webkit-animation: fadeIn linear 5s 1;
+  animation: fadeIn linear 5s 1;
+}
+@keyframes fadeIn {
+  0% {
+    visibility: hidden;
+    display: none;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}

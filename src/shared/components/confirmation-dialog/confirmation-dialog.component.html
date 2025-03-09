@@ -1,0 +1,85 @@
+<div class="shake" #dialogConfirm style="width: 400px; height: 244px">
+  <div class="container d-flex flex-column gap-5 p-2">
+    <div class="card-header d-flex justify-content-between px-5 border-0">
+      <div
+        class="circle"
+        [ngClass]="{ 'bg-danger': isWarning, 'bg-success': !isWarning }"
+      >
+        <span
+          [inlineSVG]="
+            isWarning
+              ? './assets/media/svg/icons/General/Close.svg'
+              : './assets/media/svg/icons/General/Check.svg'
+          "
+          [cacheSVG]="true"
+          class="svg-icon svg-icon-lg svg-icon-white"
+        ></span>
+      </div>
+      <button
+        type="button"
+        class="btn btn-ligh p-0"
+        aria-label="Close"
+        (click)="dialogRef.close()"
+      >
+        <span
+          [inlineSVG]="
+            '../../../../assets/media/svg/icons/Navigation/Close.svg'
+          "
+          [cacheSVG]="true"
+          class="svg-icon marker svg-icon-lg svg-icon-gray-600"
+        ></span>
+      </button>
+    </div>
+    <div class="card card-body border-0" style="border-radius: 0 !important">
+      <strong
+        style="
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 28px;
+        "
+        >{{ Title }}</strong
+      >
+      <span
+        style="
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #525a6a;
+        "
+        >{{ message }}</span
+      >
+    </div>
+
+    <div
+      class="card-footer card-confirmation-footer border-0 d-flex flex-row gap-1"
+      style="border: none !important; background: white !important"
+      #dialogConfirm
+    >
+      <button
+        type="button"
+        class="btn btn-light btn-sm btn-hover-bg-white bg-white col-md text-center"
+        (click)="onConfirmClick(false)"
+        style="
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          color: #3e4450;
+          border: 1px solid #c8cbd3;
+          padding: 10px 16px;
+        "
+      >
+        {{ cancelButtonText }}</button
+      >&nbsp;
+      <button
+        type="button"
+        class="btn btn-primary btn-elevate col-md"
+        (click)="onConfirmClick(true)"
+        cdkFocusInitial
+      >
+        {{ confirmButtonText }}
+      </button>
+    </div>
+  </div>
+</div>

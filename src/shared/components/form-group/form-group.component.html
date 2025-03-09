@@ -1,0 +1,41 @@
+<div
+  class="form-group {{ className }}"
+  [ngClass]="haveButton ? 'haveButton' : ''"
+>
+  <label class="form-label">
+    {{ fieldLabel }}
+  </label>
+  <div class="d-flex">
+    <input
+      [formControl]="control"
+      *ngIf="inputType != 'textarea' && inputType != 'dropdown'"
+      type="{{ inputType }}"
+      placeholder="{{ inputPlaceholder }}"
+      class="form-control"
+      [attr.disabled]="disabled ? 'disabled' : null"
+    />
+    <textarea
+      [formControl]="control"
+      *ngIf="inputType == 'textarea'"
+      placeholder="{{ inputPlaceholder }}"
+      class="form-control"
+      [attr.disabled]="disabled ? 'disabled' : null"
+    >
+    </textarea>
+    <button *ngIf="haveButton">Apply Promo</button>
+
+    <select
+      class="form-control"
+      [formControl]="control"
+      (change)="onChangeValue($event)"
+      *ngIf="inputType == 'dropdown' && dataSource"
+      name=""
+      id=""
+    >
+      <option disabled selected value>-- select an {{ fieldLabel }} --</option>
+      <option [value]="data.Id" *ngFor="let data of dataSource">
+        {{ data.Name }}
+      </option>
+    </select>
+  </div>
+</div>

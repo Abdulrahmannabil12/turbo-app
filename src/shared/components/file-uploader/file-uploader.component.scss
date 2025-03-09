@@ -1,0 +1,126 @@
+.text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  transition: 0.2s linear;
+
+  &:hover {
+    background-color: #f5f4f7 !important;
+
+    .text-dargNdrop {
+      font-size: 0.9em;
+      color: #211c59de !important;
+    }
+    .text-file-info {
+      font-size: 0.8em;
+      color: #211c59de !important;
+    }
+    .text-file-sub-info {
+      font-size: 0.75em;
+      color: #211c59de !important;
+    }
+  }
+}
+.text-file-info {
+  font-size: 0.8em !important;
+}
+.text-file-sub-info {
+  font-size: 0.75em !important;
+}
+
+.text-dargNdrop {
+  font-size: 0.9em !important;
+}
+.centered {
+  font-family: sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.dropzone {
+  height: 12.5em;
+  display: table;
+  width: 100%;
+  background-color: #eee;
+  border: dotted 1px #aaa;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.textLink {
+  font-size: 1.2em;
+  transition: 0.4s linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #211c59de;
+    font-size: 1.1em;
+    color: white !important;
+    border-radius: 5px;
+    padding: .375em;
+  }
+}
+
+.text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.centered {
+  font-family: sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.fileItem {
+  width: 100%;
+  overflow: hidden;
+  height: fit-content;
+  margin: .18em;
+  padding: .625em;
+  display: block;
+  position: relative;
+  float: left;
+  border: .125em solid #211c59de;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+.fileItemIconDiv {
+  text-align: center;
+}
+
+.file-icon-container {
+  background: #f7f7f7;
+  border: .25em solid #e1e1e1;
+  border-radius: 50%;
+  &:hover {
+    cursor: auto !important;
+  }
+}
+.mat-progress-bar-buffer {
+  background-color: #d1c4e9 !important;
+}
+
+$background-primary: #232323;
+$background-warn: #c1640c;
+.mat-snack-bar-container {
+  color: white;
+}
+//Added with panelClass property
+.snack-error {
+  background-color: $background-warn !important;
+  text-align: center;
+  button {
+    color: white;
+  }
+}
+//Added with panelClass property
+.snack-success {
+  background-color: green !important;
+  text-align: center;
+
+  button {
+    color: white;
+  }
+}

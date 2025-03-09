@@ -1,0 +1,94 @@
+<div class="row pt-4" [formGroup]="FormGroup" style="width: inherit !important">
+  <div class="col-md d-flex align-items-center p-5 pl-8">
+    <mat-button-toggle-group
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="companyTypeId"
+      (change)="companyContractChanged($event)"
+      [disabled]="isLoading$ | async"
+    >
+      <mat-button-toggle
+        [value]="contractTypeEnum.I_InSource"
+        class="insource-btn mr-2"
+        disableRipple="true"
+        >Insource</mat-button-toggle
+      >
+      <mat-button-toggle
+        [value]="contractTypeEnum.V_Vendor"
+        class="outsource-btn"
+        disableRipple="true"
+        >Outsource</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </div>
+
+  <div
+    class="col-md d-flex align-items-baseline justify-content-end outsource-request pr-6 ml-8"
+  >
+   
+    <div
+      *ngIf="
+        !(isLoading$ | async) && companyTypeId === contractTypeEnum.I_InSource
+      "
+      class="badge badge-light align-self-center p-5"
+    >
+      <span class="text-dark" style="letter-spacing: 1px; font-size: 1.3rem">{{
+        FormGroup.get(controlName).value
+      }}</span>
+    </div>
+    <mat-form-field
+      *ngIf="companyTypeId === contractTypeEnum.V_Vendor"
+      class="example-full-width"
+      appearance="outline"
+    >
+      <input
+        type="text"
+        placeholder="Search Company Name..."
+        aria-label="Company Name"
+        matInput
+        (change)="searchInputChange()"
+        (blur)="checkCompanyId()"
+        [formControlName]="'companyName'"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <ng-container
+          *ngFor="let company of (filteredCompanies$ | async)?.data"
+        >
+          <mat-option
+            (onSelectionChange)="setSelectedCompanyObject(company)"
+            *ngIf="company.contractTypeId === companyTypeId"
+            [value]="company.nameEn"
+          >
+            <span>{{ company.nameEn }}-{{ company.nameAr }}</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+      <i
+        matPrefix
+        class="fa fa-search fa-lg"
+        aria-hidden="true"
+        style="bottom: 5px; position: relative"
+      ></i>
+      <mat-error
+        class="text-center"
+        *ngIf="controlHasError('InvalidCompanyId', controlName)"
+      >
+        <strong> Invalid Company </strong>
+      </mat-error>
+      <mat-error
+        class="text-center"
+        *ngIf="controlHasError('required', controlName)"
+      >
+        <strong> Company is required </strong>
+      </mat-error>
+    </mat-form-field>
+     <ng-container *ngIf="isLoading$ | async">
+      <span
+        [style.display]="
+          companyTypeId === contractTypeEnum.V_Vendor ? '' : 'contents'
+        "
+        class="spinner spinner-primary ml-10"
+      ></span>
+    </ng-container>
+  </div>
+</div>

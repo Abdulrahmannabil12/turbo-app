@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <!-- Form starts -->
+      <form
+        class="d-flex flex-column"
+        [formGroup]="registrationForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="group-gap">
+          <!-- Upload image -->
+          <div class="avatar-upload text-center">
+            <div class="avatar-edit">
+              <input
+                type="file"
+                id="imageUpload"
+                accept=".png, .jpg, .jpeg"
+                #fileInput
+                (change)="uploadFile($event)"
+              />
+            </div>
+            <div
+              class="avatar-preview"
+              [ngClass]="[
+                radiusClass ? radiusClass : 'preview-radius',
+                widthHightClass
+                  ? widthHightClass
+                  : 'avatar-preview-width-height'
+              ]"
+            >
+              <div
+                *ngIf="!this.FormGroup.get(this.controlName)?.value "
+                class="preview-container"
+                id="imagePreview"
+                [ngClass]="[
+                  radiusClass ? radiusClass : 'preview-radius',
+                  widthHightClass
+                    ? widthHightClass
+                    : 'avatar-preview-width-height'
+                ]"
+                [style.backgroundImage]="'url(' + displayedImage + ')'"
+              ></div>
+              <img
+                *ngIf="this.FormGroup.get(this.controlName)?.value ||removeUpload"
+                class="preview-container"
+                id="imagePreview"
+                [src]="imageUrl ||defaultImageUrl"
+                alt=""
+                [ngClass]="[
+                  radiusClass ? radiusClass : 'preview-radius',
+                  widthHightClass
+                    ? widthHightClass
+                    : 'avatar-preview-width-height'
+                ]"
+              />
+
+              <span
+                class="remove-icon"
+                *ngIf="imageUrl && removeUpload"
+                (click)="removeUploadedFile()"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Remove"
+                [ngClass]="[
+                  radiusClass ? radiusClass : 'preview-radius',
+                  widthHightClass
+                    ? widthHightClass
+                    : 'avatar-preview-width-height'
+                ]"
+              >
+                <i class="far fa-trash-alt text-white"></i>
+              </span>
+            </div>
+            <strong *ngIf="hasErrorRequired"> Profile image is required</strong>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-primary font-weight-bold px-9 py-4 w-100"
+          (click)="fileInput.click()"
+        >
+          Upload Image
+        </button>
+      </form>
+      <!-- Form ends -->
+    </div>
+  </div>
+</div>

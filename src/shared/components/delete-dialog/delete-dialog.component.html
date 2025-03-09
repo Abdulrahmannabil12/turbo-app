@@ -1,0 +1,45 @@
+<div *ngIf="isLoading">
+  <div class="progress progress-modal">
+    <div
+      class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
+      role="progressbar"
+      style="width: 100%"
+      aria-valuenow="100"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header text-center">Delete Confirmation</div>
+  <div class="card-body table-responsive">
+    <ng-container *ngIf="isLoading">
+      <span>{{ data.selectedDetails }} is deleting...</span>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading">
+      <span
+        >Are you sure to permanently delete this "{{ data.selectedDetails }}"
+        ?</span
+      >
+    </ng-container>
+
+    <div class="row">
+      `
+      <div class="col-md-6 d-flex" style="justify-content: flex-start">
+        <button mat-raised-button (click)="onNoClick()">Cancel</button>
+      </div>
+      <div class="col-md-6 d-flex" style="justify-content: flex-end">
+        <button
+          mat-raised-button
+          mat-dialog-close
+          (click)="Delete('ok')"
+          cdkFocusInitial
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

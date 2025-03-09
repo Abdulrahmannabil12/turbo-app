@@ -1,0 +1,6 @@
+<ngb-pagination [collectionSize]="collectionSize" [pageSize]="5" (pageChange)="updatePage($event)" [(page)]="page"
+    aria-label="Custom pagination">
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+    <!-- <ng-template ngbPaginationNumber let-p></ng-template> -->
+</ngb-pagination>
