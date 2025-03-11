@@ -10,8 +10,8 @@ export const locale = {
       ACTIONS: 'Actions',
       CREATE_POST: 'Create New Post',
       PAGES: 'Pages',
-      FEATURES: 'Features',
-      APPS: 'Apps',
+      SETTING: 'Settings',
+      USERS: 'Users',
       DASHBOARD: 'Dashboard',
     },
     AUTH: {

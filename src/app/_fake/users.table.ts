@@ -1,3 +1,5 @@
+import { UserTypes } from "src/shared/enums/UserTypes.enum";
+
 export class UsersTable {
   public static users: any = [
     {
@@ -16,6 +18,7 @@ export class UsersTable {
       companyName: 'Keenthemes',
       phone: '456669067890',
       language: 'en',
+      userType:UserTypes.PSP_ADMIN,
       timeZone: 'International Date Line West',
       website: 'https://keenthemes.com',
       communication: {

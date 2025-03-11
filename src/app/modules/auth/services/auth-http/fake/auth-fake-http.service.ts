@@ -43,7 +43,7 @@ export class AuthHTTPService {
         auth.authToken = user.authToken;
         auth.refreshToken = user.refreshToken;
         auth.expiresIn = new Date(Date.now() + 100 * 24 * 60 * 60 * 1000);
-        return auth;
+        return {auth,user};
       })
     );
   }
@@ -83,5 +83,13 @@ export class AuthHTTPService {
 
   getAllUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(API_USERS_URL);
+  }
+  auhturize(token: string): Observable<any> {
+    if (!token) {
+      return of(undefined)
+    }
+    return this.http.post<any>(`${API_USERS_URL}/Authorize`,
+      JSON.stringify(token)
+    );
   }
 }

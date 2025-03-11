@@ -6,7 +6,7 @@ import * as CryptoJS from 'crypto-js';
   providedIn: 'root',
 })
 export class EncrDecrService {
-  private readonly key = 'RAMP_FRONTEND!@#';
+  private readonly key = 'TURBOFE!@#';
   constructor() {}
 
   set(value: string): string {
@@ -26,8 +26,8 @@ export class EncrDecrService {
   get(value: string): string {
     if (!IsNullOrEmptyString(value)) {
       const key = this.getUtf8Key();
-      const val = CryptoJS.AES.decrypt(value, key, this.CryptoOption());
-      return val.toString(CryptoJS.enc.Utf8);
+      const val = CryptoJS.AES.decrypt(value, key, this.CryptoOption()); 
+      return val.toString(CryptoJS.enc.Utf16);
     }
     return value;
   }
@@ -37,13 +37,13 @@ export class EncrDecrService {
   }
 
   private convertToUtf8(value: string): CryptoJS.lib.WordArray {
-    return CryptoJS.enc.Utf8.parse(value);
+    return CryptoJS.enc.Utf16.parse(value);
   }
 
   CryptoOption(): any {
     const iv = this.getUtf8Key();
     return {
-      keySize: 128 / 8,
+      keySize: 128,
       iv,
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7,
