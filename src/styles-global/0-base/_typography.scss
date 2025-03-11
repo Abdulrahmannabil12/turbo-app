@@ -1,0 +1,188 @@
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "global";
+
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir/Avenir-Regular.ttf) format("opentype");
+}
+@font-face {
+  font-family: kofiRegular;
+  src: url(../../assets/fonts/kofi/NotoKufiArabic-Regular.ttf) format("opentype");
+}
+@font-face {
+  font-family: kofiBold;
+  src: url(../../assets/fonts/kofi/NotoKufiArabic-Bold.ttf) format("opentype");
+}
+@font-face {
+  font-family: elektraLight;
+  src: url(../../assets/fonts/Elektra_Light/Elektra_Light.otf) format("opentype");
+}
+
+@font-face {
+  font-family: elektraBold;
+  src: url(../../assets/fonts/Elektra__Bold/Elektra_Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: sofiaBold;
+  src: url(../../assets/fonts/sofia/SofiaProBold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: sofiaMedium;
+  src: url(../../assets/fonts/sofia/SofiaProMedium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: sofiaRegular;
+  src: url(../../assets/fonts/sofia/SofiaProRegular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: RobotoMedium;
+  src: url(../../assets/fonts/roboto/Roboto-Medium.ttf) format("opentype");
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url(../../assets/fonts/roboto/Roboto-Bold.ttf) format("opentype");
+}
+
+
+$base_font_family: RobotoMedium;
+$base_font_family_Bold: RobotoBold;
+// $base-font-size: 14px;
+// $base-font-weight: 400;
+
+/* Font/text values */
+
+$font_family: $base_font_family;
+$font_family_Bold: $base_font_family_Bold;
+$font_style_normal: normal;
+$font_weigth_normal: 400;
+$font_weigth_medium: 500;
+$font_weigth_semibold: 600;
+$font_weigth_bold: 700;
+$font_weigth_extrebold: 800;
+$font_weigth_black: 900;
+$font_size_16: 16px;
+$font_size_12: 12px;
+$font_size_25: 25px;
+$font_size_30: 30px;
+$font_size_20: 20px;
+$font_size_14: 14px;
+$character-spacing-0: 0px;
+$line-spacing-19: 19px;
+$line-spacing-23: 23px;
+$line-spacing-25: 25px;
+$line-spacing-31: 31px;
+
+/* Character Styles */
+
+::ng-deep {
+
+  .mat-h1,
+  .mat-headline,
+  .mat-typography h1 {
+    font-family: $font_family;
+  }
+}
+
+.heading-1 {
+  font-family: $font_family_Bold;
+  font-style: $font_style_normal;
+  font-weight: $font_family;
+  font-size: $font_size_30;
+  line-height: 37px;
+  letter-spacing: $character-spacing-0;
+  color: #191919;
+  // text-transform: uppercase;
+}
+
+.heading-2 {
+  font-family: $font_family;
+  // font-style: $font_style_normal;
+  font-weight: $font_weigth_medium;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: $character-spacing-0;
+  color: #000;
+  // text-transform: uppercase;
+}
+
+.heading-3 {
+  font-family: $font_family;
+  // font-style: $font_style_normal;
+  font-weight: $font_weigth_bold;
+  font-size: $font_size_14;
+  line-height: 18px;
+  letter-spacing: $character-spacing-0;
+  color: #707070;
+
+  // text-transform: uppercase;
+  svg {
+    width: 23px;
+    height: 23px;
+    stroke: #2c3149;
+    margin-right: 5px;
+  }
+}
+
+.redLink {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_normal;
+  font-size: $font_size_12;
+  color: $base_red;
+  text-decoration: underline;
+}
+
+.font-25 {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_bold;
+  font-size: $font_size_25;
+  line-height: $line-spacing-31;
+  letter-spacing: $character-spacing-0;
+  color: #2f4656;
+}
+
+.font-20 {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_bold;
+  font-size: $font_size_20;
+  line-height: $line-spacing-25;
+  letter-spacing: $character-spacing-0;
+  color: #3e5463;
+}
+
+.font-16 {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_bold;
+  font-size: $font_size_16;
+  line-height: $line-spacing-19;
+  letter-spacing: $character-spacing-0;
+  color: #3e5463;
+}
+
+.font-14 {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_medium;
+  font-size: $font_size_14;
+  line-height: $line-spacing-23;
+  letter-spacing: $character-spacing-0;
+  color: #7e8998;
+}
+
+.font-12 {
+  font-family: $font_family;
+  font-style: $font_style_normal;
+  font-weight: $font_weigth_normal;
+  font-size: $font_size_12;
+  line-height: $line-spacing-23;
+  letter-spacing: $character-spacing-0;
+  color: #7e8998;
+}

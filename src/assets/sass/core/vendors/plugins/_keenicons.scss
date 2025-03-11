@@ -5,8 +5,31 @@
 .ki-duotone,
 .ki-outline,
 .ki-solid {
-	line-height: 1;
-    font-size: 1rem;
-	color: var(--#{$prefix}text-muted);
+  line-height: 1;
+  font-size: 1rem;
+  color: var(--#{$prefix}text-gray-500);
 }
-	
+
+.menu-item {
+
+  .ki-duotone,
+  .ki-outline,
+  .ki-solid {
+    line-height: 1;
+    font-size: 1rem;
+    color: var(--#{$prefix}text-gray-300);
+  }
+
+}
+#\#kt_app_sidebar_menu>div:nth-child(1)>a>span.menu-icon>app-keenicon
+.menu-item .active {
+
+  .ki-duotone,
+  .ki-outline,
+  .ki-solid {
+    line-height: 1;
+    font-size: 1rem;
+    color: var(--#{$prefix}text-gray-600);
+  }
+
+}

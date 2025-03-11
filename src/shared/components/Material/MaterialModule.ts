@@ -121,7 +121,8 @@ const MY_DATE_FORMATS = {
     PortalModule,
     ScrollingModule,
     ReactiveFormsModule,
-    CommonModule, 
+    CommonModule,
+    DirectivesModule,
   ],
   exports: [
     ClipboardModule,
@@ -171,7 +172,7 @@ const MY_DATE_FORMATS = {
     InlineSVGModule,
     FormGroupMaterialModule
   ],
-  entryComponents: [],
+
 
   providers: [
     { provide: NgbDateAdapter, useClass: CustomAdapter },

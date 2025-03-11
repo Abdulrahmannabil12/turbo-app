@@ -10,3 +10,66 @@
 @import "./assets/plugins/keenicons/duotone/style.css";
 @import "./assets/plugins/keenicons/outline/style.css";
 @import "./assets/plugins/keenicons/solid/style.css";
+
+@import '../theme.scss';
+// @import "./assets/css/style.rtl.css";
+
+
+
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
+// Replace above style with this SCSS file to enable dark mode styles
+//@import "./assets/sass/style.dark";
+// regular style toast
+
+// @import "../node_modules/angular-calendar/css/angular-calendar.css";
+.overlay {
+  cursor: auto !important;
+}
+
+.btn-outline-danger:hover {
+  color: white !important;
+
+  .svg-icon.svg-icon-danger svg [fill]:not(.permanent):not(g) {
+    fill: white !important;
+  }
+}
+
+.button-with-spinner {
+  transition: all .4;
+
+  i {
+    opacity: 0;
+  }
+}
+
+.loading-spinner {
+  border: 0;
+  width: 50% !important;
+  border-radius: 50px !important;
+  border: 5px dashed blue !important;
+  background-color: transparent !important;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.is-success i {
+  opacity: 1;
+  color: green;
+}
+
+.is-error i {
+  opacity: 1;
+  color: red;
+}

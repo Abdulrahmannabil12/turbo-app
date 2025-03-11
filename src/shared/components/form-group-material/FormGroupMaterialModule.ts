@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { InlineSVGModule } from 'ng-inline-svg-2'; 
+import { InlineSVGModule } from 'ng-inline-svg-2';
 import { DirectivesModule } from 'src/shared/directives/directive.module';
 
 import { FormGroupMaterialComponent } from './form-group-material.component';
@@ -16,13 +16,13 @@ import { FormGroupMaterialComponent } from './form-group-material.component';
     CommonModule,
     MatInputModule,
     MatSelectModule,
-    InlineSVGModule, 
+    InlineSVGModule,
+    DirectivesModule,
     MatIconModule,
 
   ],
   exports: [
     FormGroupMaterialComponent
   ],
-  entryComponents: [FormGroupMaterialComponent],
 })
 export class FormGroupMaterialModule { }

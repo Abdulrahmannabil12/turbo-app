@@ -1,0 +1,15 @@
+.custom-filter-checkBox {
+  width: 100% !important;
+
+  .mat-checkbox-layout ,.mdc-form-field{
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between;
+    .mat-checkbox-inner-container ,label{
+      margin: 0 !important;
+    }
+  }
+}
+.mdc-list-item__primary-text{
+    width:15rem;
+}

@@ -1,4 +1,4 @@
-<!-- <mat-label
+<mat-label
   *ngIf="!isSearch"
   style="
     font-style: normal;
@@ -8,8 +8,8 @@
   "
   [style.color]="isLogin ? 'black' : '#3E4450'"
   [style.textAlign]="isRtl ? 'right' : 'left'"
-  >{{ fieldLabel }}</mat-label> -->
-
+  >{{ fieldLabel }}</mat-label
+>
 <span
   *ngIf="requiredField && !isControlTouchedValid() && !controlIsDisabled()"
   matSuffix
@@ -20,19 +20,11 @@
 >
 </span>
 <mat-form-field
-  [color]="'Accent'"
-   *ngIf="inputType !== 'dropdown'"
+  [color]="'accent'"
+  appearance="outline"
+  *ngIf="inputType !== 'dropdown'"
 >
- <mat-label   *ngIf="!isSearch"
-  style="
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-  "
-  [style.color]="isLogin ? 'black' : '#3E4450'"
-  [style.textAlign]="isRtl ? 'right' : 'left'"
- >{{ fieldLabel }}</mat-label> 
+  <!-- <mat-label>{{ fieldLabel }}</mat-label> -->
   <input
     matInput
     [formControlName]="controlName"
@@ -52,7 +44,6 @@
     rows="3"
     cols="60"
     [required]="requiredField ? true : false"
-    [mat-autosize]="false"
     [maxlength]="150"
     [formControlName]="controlName"
     *ngIf="inputType === 'textarea'"
@@ -96,7 +87,7 @@
     class="text-center"
     *ngIf="FormGroup && controlHasError('required')"
   >
-    <strong>  {{requiredError || fieldLabel +'is required'}}</strong>
+    <strong> {{ fieldLabel }} is required</strong>
   </mat-error>
   <mat-error class="text-center" *ngIf="FormGroup && isControlInvalid()">
     <strong> {{ fieldLabel }} is Invalid </strong>
@@ -178,26 +169,18 @@
 </mat-form-field>
 
 <mat-form-field
-  [color]="'Accent'" 
+  [color]="'accent'"
+  appearance="outline"
   *ngIf="inputType === 'dropdown' && dataSource"
 >
- <mat-label   *ngIf="!isSearch"
-  style="
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-  "
-  [style.color]="isLogin ? 'black' : '#3E4450'"
-  [style.textAlign]="isRtl ? 'right' : 'left'"
- >{{ fieldLabel }}</mat-label> 
+  <!-- <mat-label class="select-input">{{ fieldLabel }}</mat-label> -->
   <mat-select
     (selectionChange)="onChangeValue($event)"
     [formControlName]="controlName"
     [required]="requiredField ? true : false"
     [placeholder]="fieldLabel"
   >
-    <mat-option [value]="data[fieldValue]" *ngFor="let data of dataSource" style="z-index:3000 !important">
+    <mat-option [value]="data[fieldValue]" *ngFor="let data of dataSource">
       <span style="font-size: 14px; line-height: 20px; letter-spacing: normal">
         {{ data[fieldName] }}</span
       >

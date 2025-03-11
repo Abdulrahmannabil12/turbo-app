@@ -1,0 +1,497 @@
+<div
+  class="card card-custom p-1"
+  style="
+    border: none !important;
+    box-shadow: none;
+    padding-left: 3vw;
+    padding-right: 3vw;
+  "
+>
+  <div class="card-header d-flex" style="border: none !important">
+    <!-- <div class="card-title">
+      <h1
+        class="card-label mb-5"
+        style="font-weight: 700; font-size: 18px; line-height: 28px"
+      >
+        {{ PageTitle }}
+      </h1>
+    </div> -->
+
+    <app-dynamic-filters
+      class="mt-1"
+      style="
+        display: flex !important;
+        justify-content: flex-end;
+        flex-grow: 1;
+        flex-basis: 0;
+      "
+      [service]="service"
+      [filtersDataSource]="filtersDataSource"
+      [filterFormGroup]="filterGroup"
+    ></app-dynamic-filters>
+    <div class="card-toolbar" *ngIf="NoDialog && isReports">
+      <strong *ngIf="isReportLoading" class="text-success pe-5"
+        >File downloaded successfully!</strong
+      >
+      <div
+        #tooltip="matTooltip"
+        matTooltip="Change filters and download again !  "
+        matTooltipPosition="above"
+        matTooltipClass="custom-tooltip text-danger"
+        [matTooltipDisabled]="invalidExportData() ? false : true"
+        aria-tooltip="Button that displays and hides a tooltip triggered by other buttons"
+      >
+        <button
+          class="btn btn-primary"
+          (click)="ExtractReport()"
+          [disabled]="
+            invalidExportData() ||
+            (service && service.items$ | async)?.length === 0 ||
+            isLoading
+          "
+        >
+          Export Data
+        </button>
+      </div>
+    </div>
+    <div class="card-toolbar mt-1" *ngIf="!NoDialog">
+      <a
+        type="button"
+        class="btn btn-primary d-flex mb-1"
+        style="padding: 10px 16px"
+        (click)="openAddEditDialog(false, null!)"
+      >
+        <i class="fa fa-plus text-white" style="align-self: center"></i> Add
+        New</a
+      >
+    </div>
+  </div>
+  <div
+    class="container m-0"
+    style="max-width: -moz-available; max-width: -webkit-fill-available"
+  >
+    <div
+      class="table-responsive angular-bootstrap-table"
+      #tableScroll
+      style="scroll-behavior: smooth !important"
+      appHorizontalScroll
+    >
+      <table
+        class="table table-head-custom table-curved table-vertical-center overflow-hidden p-2"
+        style="border-collapse: separate; border-spacing: 0px 10px"
+      >
+        <thead
+          class="border-bottom"
+          style="border-bottom: 1px solid #ced1d8 !important"
+        >
+          <ng-container *ngFor="let col of columns">
+            <th
+              class="cursor-pointer"
+              *ngIf="col.type !== 'masterDetails'"
+              [ngStyle]="{
+                'min-width.px': col.width
+                  ? col.width * 10
+                  : col.header.length > 2 && col.header.length < 8
+                  ? col.header.length * 21
+                  : col.header.length * 16
+              }"
+              style=""
+            >
+              {{ col.header }}
+              <app-sort-icon
+                [column]="col.field"
+                [activeColumn]="sorting.column"
+                [activeDirection]="sorting.direction"
+                (sort)="sort($event)"
+                style="padding: 0; margin: 0"
+              ></app-sort-icon>
+            </th>
+          </ng-container>
+          <th *ngIf="!isReports" style="min-width: 150px !important">
+            ACTIONS
+          </th>
+        </thead>
+
+        <tbody>
+          <ng-container
+            *ngFor="let item of service?.items$ | async; let index = index"
+          >
+            <tr
+              [class.focused]="index === focusedRowIndex"
+              (click)="onRowClick(index)"
+              (dblclick)="getMasterHeaders(columns) && toggleExpand(index)"
+            >
+              <ng-container *ngFor="let field of columns">
+                <td
+                  [class]="
+                    field.field === sorting.column
+                      ? 'text-primary fw-bolder'
+                      : ''
+                  "
+                  *ngIf="field.type !== 'masterDetails'"
+                >
+                  <ng-container [ngSwitch]="field.type && field.type">
+                    <ng-container *ngSwitchCase="'boolean'">
+                      <span
+                        class="badge fs-8 fw-bolder my-2"
+                        [class.badge-light-danger]="
+                          getItemField(item, field.field) == false
+                        "
+                        [class.badge-light-success]="
+                          getItemField(item, field.field) == true
+                        "
+                      >
+                        <ng-container>
+                          {{
+                            getItemField(item, field.field) === true
+                              ? "Active"
+                              : "Inactive"
+                          }}</ng-container
+                        >
+                      </span>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'hasExpr'">
+                      <ng-container>
+                        {{
+                          getDataSourceEnumVal(
+                            getItemField(item, field.field),
+                            field.dataSourceEnum
+                          )
+                        }}</ng-container
+                      >
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'mergMonth'">
+                      <ng-container
+                        [ngSwitch]="getItemField(item, field.field)"
+                      >
+                        {{ item.month | slice : 0 : 3 }} {{ item.year }}
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'hasImage'">
+                      <ng-container
+                        [ngSwitch]="getItemField(item, field.field)"
+                      >
+                        <img
+                          width="50px"
+                          height="50px"
+                          [src]="
+                            getItemField(
+                              item,
+                              field.image ? field.image : ''
+                            ) || './assets/media/users/default.jpg'
+                          "
+                          class="rounded-circle"
+                        />
+                        {{ getItemField(item, field.field) }}
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'Date'">
+                      <ng-container
+                        [ngSwitch]="getItemField(item, field.field)"
+                      >
+                        {{
+                          getItemField(item, field.field) | date : "dd-MM-yyyy"
+                        }}
+                      </ng-container>
+                    </ng-container>
+
+                    <ng-container *ngSwitchCase="'DateTime'">
+                      <ng-container
+                        [ngSwitch]="getItemField(item, field.field)"
+                      >
+                        {{
+                          getItemField(item, field.field)
+                            | date : "dd-MM-yyyy, h:mm a "
+                        }}
+                      </ng-container>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>{{
+                      getItemField(item, field.field)
+                    }}</ng-container>
+                  </ng-container>
+                </td>
+              </ng-container>
+              <td *ngIf="!isReports" style="">
+                <a
+                  *ngIf="isViewable"
+                  [title]="'View ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-gray-600 btn-sm"
+                  (click)="
+                    routerLinkRoute
+                      ? ViewRouter(routerLinkRoute, item)
+                      : View(item)
+                  "
+                >
+                  <span
+                    [inlineSVG]="'./assets/media/svg/icons/General/Eye.svg'"
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md svg-icon-info"
+                  >
+                  </span>
+                </a>
+                <a
+                  *ngIf="hasReject"
+                  [title]="'View ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-gray-600 btn-sm"
+                  (click)="View(item)"
+                >
+                  <span
+                    [inlineSVG]="'./assets/media/svg/icons/General/Close.svg'"
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md svg-icon-gray-600"
+                  >
+                  </span>
+                </a>
+                <a
+                  *ngIf="hasApprove"
+                  [title]="'View ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-gray-600 btn-sm"
+                  (click)="
+                    routerLinkRoute
+                      ? ViewRouter(routerLinkRoute, item)
+                      : View(item)
+                  "
+                >
+                  <span
+                    [inlineSVG]="'./assets/media/svg/icons/General/Check.svg'"
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md svg-icon-gray-600"
+                  >
+                  </span>
+                </a>
+                <a
+                  *ngIf="isEditable"
+                  [title]="'Edit ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-primary btn-sm mx-3"
+                  (click)="openAddEditDialog(true, item)"
+                >
+                  <span
+                    [inlineSVG]="'./assets/media/svg/icons/General/Edit.svg'"
+                    [cacheSVG]="true"
+                    class="svg-icon svg-outlline-icon-md svg-icon-warning"
+                  >
+                  </span>
+                </a>
+
+                <a
+                  *ngIf="isDuplicateOption"
+                  [title]="'Duplicate ' + PageTitle"
+                  class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                  (click)="openDuplicateDialog(item)"
+                >
+                  <span
+                    [inlineSVG]="
+                      './assets/media/svg/icons/Communication/Clipboard-list.svg'
+                    "
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md svg-icon-primary"
+                  >
+                  </span>
+                </a>
+                <a
+                  *ngIf="isDeletable"
+                  [title]="'Delete ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-primary btn-sm mx-3"
+                  (click)="deleteItem(item.id)"
+                >
+                  <span
+                    [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'"
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md svg-icon-danger"
+                  >
+                  </span>
+                </a>
+                <a
+                  *ngIf="isAssignable"
+                  [title]="'Assign ' + PageTitle"
+                  class="btn btn-icon btn-outlline-light btn-hover-primary btn-sm mx-3"
+                  (click)="openAssignDialog(true, item)"
+                >
+                  <span
+                    [inlineSVG]="
+                      './assets/media/svg/icons/Navigation/transfer.svg'
+                    "
+                    [cacheSVG]="true"
+                    class="svg-icon svg-outlline-icon-md svg-icon-primary"
+                  >
+                  </span>
+                </a>
+                <a
+                  class="btn btn-icon btn-outlline-light btn-hover-primary btn-sm mx-3"
+                  *ngIf="
+                    getMasterHeaders(columns) &&
+                    item[getMasterHeaders(columns).field].length > 0
+                  "
+                >
+                  <span
+                    [inlineSVG]="
+                      isExpanded[index]
+                        ? './assets/media/svg/icons/Navigation/Angle-double-down.svg'
+                        : './assets/media/svg/icons/Navigation/Angle-double-up.svg'
+                    "
+                    [cacheSVG]="true"
+                    class="svg-icon svg-icon-md"
+                    [class]="
+                      isExpanded[index]
+                        ? 'svg-icon-primary'
+                        : 'svg-icon-gray-600'
+                    "
+                    (click)="toggleExpand(index)"
+                  >
+                  </span>
+                </a>
+              </td>
+            </tr>
+
+            <tr *ngIf="isExpanded[index]">
+              <td [attr.colspan]="columns.length + 1">
+                <div
+                  [@expandCollapse]="isExpanded[index]"
+                  class="card card-body card-bordered mb-2 d-flex justify-content-center"
+                >
+                  <table
+                    style="overflow: scroll"
+                    class="table table-striped table-hover table-borderless"
+                  >
+                    <thead>
+                      <tr
+                        style="
+                          background: gray !important;
+                          color: white !important;
+                        "
+                      >
+                        <th
+                          class="text-center"
+                          *ngFor="
+                            let mdHeader of getMasterHeaders(columns)
+                              .masterDetailsHeaders
+                          "
+                        >
+                          {{ mdHeader.header }}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="
+                          let mdItem of item[getMasterHeaders(columns).field];
+                          let i = index
+                        "
+                      >
+                        <td
+                          class="text-center"
+                          *ngFor="
+                            let mdHeader of getMasterHeaders(columns)
+                              .masterDetailsHeaders
+                          "
+                        >
+                          <ng-container [ngSwitch]="mdHeader.type">
+                            <ng-container *ngSwitchCase="'boolean'">
+                              <span
+                                class="badge fs-8 fw-bolder my-2"
+                                [class.badge-light-danger]="
+                                  getItemField(mdItem, mdHeader.field) === false
+                                "
+                                [class.badge-light-success]="
+                                  getItemField(mdItem, mdHeader.field) === true
+                                "
+                              >
+                                <ng-container>
+                                  {{
+                                    getItemField(mdItem, mdHeader.field) ===
+                                    true
+                                      ? "Active"
+                                      : "Inactive"
+                                  }}</ng-container
+                                >
+                              </span>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'hasExpr'">
+                              <ng-container>
+                                {{
+                                  getDataSourceEnumVal(
+                                    getItemField(mdItem, mdHeader.field),
+                                    mdHeader.dataSourceEnum
+                                  )
+                                }}</ng-container
+                              >
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="'hasImage'">
+                              <ng-container
+                                [ngSwitch]="
+                                  getItemField(mdItem, mdHeader.field)
+                                "
+                              >
+                                <img
+                                  width="50px"
+                                  height="50px"
+                                  [src]="
+                                    getItemField(
+                                      mdItem[mdHeader.field],
+                                      mdHeader.image ? mdHeader.image : ''
+                                    ) || './assets/media/users/default.jpg'
+                                  "
+                                  class="rounded-circle"
+                                />
+                                {{ getItemField(mdItem, mdHeader.field) }}
+                              </ng-container>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'Date'">
+                              <ng-container
+                                [ngSwitch]="
+                                  getItemField(mdItem, mdHeader.field)
+                                "
+                              >
+                                {{
+                                  getItemField(mdItem, mdHeader.field)
+                                    | date : "dd-MM-yyyy"
+                                }}
+                              </ng-container>
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="'DateTime'">
+                              <ng-container
+                                [ngSwitch]="
+                                  getItemField(mdItem, mdHeader.field)
+                                "
+                              >
+                                {{
+                                  getItemField(mdItem, mdHeader.field)
+                                    | date : "dd-MM-yyyy, h:mm a "
+                                }}
+                              </ng-container>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>{{
+                              getItemField(mdItem, mdHeader.field)
+                            }}</ng-container>
+                          </ng-container>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <tr
+        *ngIf="service?.items$ | async as items"
+        class="d-flex justify-content-center p-10 border-0"
+      >
+        <strong *ngIf="items.length === 0 && !isLoading" class="text-danger"
+          >No records yet !</strong
+        >
+      </tr>
+    </div>
+
+    <app-paginator
+      *ngIf="paginator"
+      class="d-flex justify-content-center align-items-center flex-wrap"
+      [paginator]="paginator"
+      [isLoading]="isLoading"
+      (paginate)="paginate($event)"
+    ></app-paginator>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+
+ $main_color: linear-gradient(180deg, #eb5a19 0%, #f28d01 99%);
+$main_Danger: #EB4E3D;
+$main_Success: #211c59de;
+
+
+.mat-calendar-body-cell-content {
+  &:hover {
+    background-color: $main_Success !important;
+    color: whitesmoke !important;
+    transform: scale(1.05, 1.05);
+  }
+}
+.mat-calendar-body-selected {
+  background-color: $main_Success !important;
+  color: whitesmoke !important;
+}
+.mat-datepicker-content {
+  border-radius: 2em !important;
+}
+.mat-datepicker-toggle-default-icon {
+  font-size: 2rem !important;
+  color: $main_Success !important;
+  &:hover {
+    transform: scale(1.05, 1.05);
+    color: $main_Success !important;
+  }
+  &:focus {
+    transform: scale(1.05, 1.05);
+    color: $main_Success !important;
+  }
+}

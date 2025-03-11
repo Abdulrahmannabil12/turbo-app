@@ -4,6 +4,7 @@ import { InlineSVGModule } from 'ng-inline-svg-2';
 import { RouterModule, Routes } from '@angular/router';
 import {
   NgbDropdownModule,
+  NgbModalModule,
   NgbProgressbarModule,
   NgbTooltipModule,
 } from '@ng-bootstrap/ng-bootstrap';
@@ -86,7 +87,8 @@ const routes: Routes = [
     NgbTooltipModule,
     TranslateModule,
     ThemeModeModule,
-    SharedModule
+    SharedModule,
+    NgbModalModule
   ],
   exports: [RouterModule],
 })

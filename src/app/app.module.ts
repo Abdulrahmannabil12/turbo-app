@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
+import { ToastrModule } from 'ngx-toastr';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -40,6 +41,16 @@ function appInitializer(authService: AuthService) {
         dataEncapsulation: false,
       })
       : [],
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      easeTime: 300,
+      timeOut: 5000,
+      closeButton: true,
+      progressBar: true,
+      titleClass: 'toast-titleClass',
+      messageClass: 'toast-messageClass',
+      toastClass: 'ngx-toastr',
+    }),
     // #fake-end#
     AppRoutingModule,
     InlineSVGModule.forRoot(),

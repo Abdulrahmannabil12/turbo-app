@@ -1,24 +1,160 @@
-<div class="row d-inline-block" style="margin-bottom: 15px">
-  <div class="col-md-12 input-group justify-content-center">
-    <input
-      type="file"
-      #file
-      [placeholder]="placeholder"
-      accept="application/pdf"
-      (change)="uploadFile($event.target.files)"
-      style="display: none"
-    />
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="file.click()"
-      style="margin: 15px"
-    >
-      <span class="glyphicon glyphicon-upload"></span> {{ placeholder }}
-    </button>
+<div class="container d-flex flex-column" [formGroup]="formGroup">
+  <span class="text-primary mb-5">{{ placeholder }}</span>
+  <div
+    class="dropzone mb-5"
+    fileDragDrop
+    (filesChangeEmitter)="onFileChange($event)"
+    *ngIf="!isUploaded && !progress"
+  >
+    <div class="text-wrapper bg-white">
+      <div class="centered d-flex justify-content-center">
+        <input
+          type="file"
+          name="file"
+          id="file"
+          (change)="onFileChange($event.target.files)"
+        />
+        <div class="row flex-column align-items-center">
+          <div class="btn file-icon-container mb-5" style="width: fit-content">
+            <span
+              [inlineSVG]="'./assets/media/svg/icons/Files/Cloud-upload.svg'"
+              class="svg-icon svg-icon-2x svg-icon-primary"
+            ></span>
+          </div>
+          <label for="file"
+            ><span class="textLink text-primary">Click to upload</span>
+            <span class="text-dargNdrop text-muted ml-1">
+              or drag and drop</span
+            >
+          </label>
+          <span class="text-file-info text-muted mt-5"
+            >PDF
+            <span class="text-file-sub-info text-muted ml-1" *ngIf="maxValueInMB">
+              (Max : {{ maxValueInMB }} MB)</span
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+
+
+    
   </div>
-     
-     <strong class="text-center text-danger float-right">{{message}}</strong>
+  <ng-container *ngIf="!isUploaded">
+    <div
+      class="d-flex fileItem p-5"
+      *ngFor="let file of files; let ind = index"
+    >
+      <div class="col-md-1 p-0 fileItemIconDiv mr-2">
+        <div class="btn file-icon-container mt-1">
+          <i
+            class="fa fa-regular fa-file p-0 text-dark"
+            style="font-weight: initial !important; font-size: 1.5em"
+          ></i>
+        </div>
+      </div>
+      <div class="col row flex-column">
+        <span
+          class="text-dark"
+          style="font-size: 1em; line-height: 2em; letter-spacing: 0.01vw"
+          >{{ file.name }}</span
+        >
+        <span
+          class="text-muted"
+          style="font-size: 1em; line-height: 2em; letter-spacing: 0.01vw"
+          >{{
+            file.size / 1024 > 1000
+              ? (file.size / 1024 / 1024).toFixed(2) + " MB"
+              : (file.size / 1024).toFixed(2) + " KB"
+          }}</span
+        >
+        <mat-progress-bar
+          mode="determinate"
+          [value]="progress"
+        ></mat-progress-bar>
+      </div>
+
+      <div class="col-md-1 pt-5 pr-0 ml-5 row flex-column">
+        <i
+          class="fa fa-check-circle text-center"
+          aria-hidden="true"
+          style="color: #7f56d9"
+        ></i>
+        <span
+          class="text-dark mt-5"
+          style="font-size: 1em; line-height: 2em; letter-spacing: 0.01vw"
+          >{{ progress }} %</span
+        >
+      </div>
+    </div>
+  </ng-container>
 
 
+  
+  <ng-container *ngIf="isUploaded">
+    <div
+      class="d-flex fileItem p-5"
+      *ngFor="let file of files; let ind = index"
+    >
+      <div class="col-md-1 p-0 fileItemIconDiv mr-2">
+        <div class="btn file-icon-container mt-1">
+          <i
+            class="fa fa-regular fa-file p-0 text-dark"
+            style="font-weight: initial !important; font-size: 1.5em"
+          ></i>
+        </div>
+      </div>
+      <div class="col row flex-column mt-2">
+        <span
+          class="text-dark"
+          style="font-size: 1em; line-height: 2em; letter-spacing: 0.01vw"
+          >{{ file.name }}</span
+        >
+        <span
+          *ngIf="file.size"
+          class="text-muted"
+          style="font-size: 1em; line-height: 2em; letter-spacing: 0.01vw"
+          >{{
+            file.size / 1024 > 1000
+              ? (file.size / 1024 / 1024).toFixed(2) + " MB"
+              : (file.size / 1024).toFixed(2) + " KB"
+          }}</span
+        >
+      </div>
+      <div class="col-md row justify-content-end p-1" style="gap: 0.5vw">
+        <a
+          [href]="getFileUrl()"
+          target="_blank"
+          class="btn btn-light btn-hover-primary"
+          style="height: fit-content"
+          ><i
+            class="fa fa-eye text-primary text-bold-hover curser-pointer p-0"
+            aria-hidden="true"
+          ></i>
+        </a>
+        <a
+          class="btn btn-light btn-hover-primary"
+          target="_self"
+          [href]="getFileUrl()"
+          [download]="file.name"
+          [attr.disabled]="fDownload.busy"
+          #fDownload="wmDownload"
+          style="height: fit-content"
+          ><i
+            class="fa fa-download text-primary text-bold-hover curser-pointer p-0"
+            aria-hidden="true"
+          ></i>
+        </a>
+        <a
+          class="btn btn-light btn-hover-danger"
+          (click)="removeFile()"
+          style="height: fit-content"
+          ><i
+            class="fa fa-trash text-danger text-bold-hover cursor-pointer p-0"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </div>
+    </div>
+  </ng-container>
 </div>

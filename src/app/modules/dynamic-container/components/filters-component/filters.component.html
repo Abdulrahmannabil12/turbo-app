@@ -1,0 +1,106 @@
+ <div
+  *ngIf="filtersDataSource && filtersDataSource.length > 0 && service"
+      class="card-toolbar d-flex row"
+      [formGroup]="filterFormGroup"
+    >
+      <ng-container *ngFor="let filter of filtersDataSource">
+        <div
+          class="col-md"
+          *ngIf="
+            filter.controlType === 'text' &&
+            filterFormGroup.get(filter.controlName + filterCheckboxSuffix)
+              ?.value
+          "
+        >
+           <form-group-material
+            [inputPlaceholder]="'search by ' + filter.controlLabel"
+            [fieldLabel]="'search by ' + filter.controlLabel"
+            [controlName]="filter.controlName"
+            [isSearch]="true"
+            matPrefixIcon="search"
+            [OnlyNumber]="!!filter.onlyNumber"
+          ></form-group-material>
+        </div>
+        <div
+          class="col-md"
+          *ngIf="
+            filter.controlType ==='dropDown' &&
+            filterFormGroup.get(filter.controlName + filterCheckboxSuffix)
+              ?.value
+          "
+        >
+          <form-group-material
+            [fieldLabel]="filter.controlLabel"
+            [controlName]="filter.controlName"
+            inputType="dropdown"
+            [isSearch]="true"
+            [dataSource]="filter.dataSource||[]"
+          ></form-group-material>
+        </div>
+        <div
+          class="col-md"
+          *ngIf="
+            filter.controlType === 'date' &&
+            filterFormGroup.get(filter.controlName + filterCheckboxSuffix)
+              ?.value
+          "
+        >
+          <mat-form-field appearance="outline" class="input-search">
+            <input
+              matInput
+              [matDatepicker]="DatePickerFilter"
+              [placeholder]="'search by ' + filter.controlLabel"
+              [formControlName]="filter.controlName"
+              [name]="filter.controlName"
+              [id]="filter.controlName"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              style="fill: #7e8299 ;color:#7e8299; position:relative; z-index:1"
+              [for]="DatePickerFilter"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #DatePickerFilter></mat-datepicker>
+           </mat-form-field>
+        </div>
+      </ng-container>
+      <div class="col-md mt-2">
+        <button
+          [matMenuTriggerFor]="menu"
+          class="btn btn-light btn-sm btn-hover-bg-white d-flex bg-white text-dark mb-5"
+          style="
+            border: 1px solid #c8cbd3;
+            padding: 10px 16px;
+          "
+        >
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Text/Filter.svg'"
+            [cacheSVG]="true"
+            class="svg-icon svg-icon-md align-self-center"
+          ></span>
+          Filter
+        </button>
+
+        <mat-menu #menu="matMenu" xPosition="before">
+          <ng-container *ngFor="let filterControl of filtersDataSource">
+            <div
+            *ngIf="filterControl.controlType!=='hidden' "
+              mat-menu-item
+              [disableRipple]="true"
+              (click)="$event.stopPropagation()"
+            >
+              <mat-checkbox
+                [labelPosition]="'before'"
+                [formControlName]="
+                  filterControl.controlName + filterCheckboxSuffix
+                "
+                class="custom-filter-checkBox"
+                (input)="filtersChanged($event, filterControl)"
+                [color]="'primary'"
+              >
+                {{ filterControl.controlLabel }}
+              </mat-checkbox>
+            </div>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </div>

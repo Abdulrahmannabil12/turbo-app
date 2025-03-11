@@ -115,10 +115,10 @@
 }
 
 // Accordion arrows
-.menu-item {    
+.menu-item {
     &.show {
         .menu-link {
-            .menu-arrow:after {                
+            .menu-arrow:after {
                 backface-visibility: hidden;
                 transition: $menu-accordion-arrow-transition;
             }
@@ -130,7 +130,7 @@
 .menu-nowrap {
     .menu-title,
     .menu-link {
-        flex-wrap: nowrap;    
+        flex-wrap: nowrap;
         flex-shrink: 0;
     }
 }
@@ -142,10 +142,10 @@
 
 // Heading
 .menu-heading {
-    color: var(--#{$prefix}menu-heading-color);    
+    color: var(--#{$prefix}menu-heading-color);
 }
 
-// Responsive 
+// Responsive
 @each $direction in (up, down) {
     @each $breakpoint in map-keys($grid-breakpoints) {
         $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -185,12 +185,12 @@
                 &.show[data-popper-placement] {
                     display: flex;
                     will-change: transform;
-                    
+
                     // Animation
                     @if ($menu-dropdown-animation == true) {
                         // Move up
                         animation: menu-sub-dropdown-animation-fade-in #{$menu-dropdown-animation-speed} ease 1, menu-sub-dropdown-animation-move-up #{$menu-dropdown-animation-speed} ease 1;
-                    }                    
+                    }
                 }
             }
 
@@ -277,40 +277,40 @@
 // Link indention
 .menu-link-indention {
     .menu-item {
-        padding-top: 0;    
-        padding-bottom: 0;    
+        padding-top: 0;
+        padding-bottom: 0;
     }
-        
+
     @include menu-link-indention($menu-accordion-indention, $menu-link-padding-x);
 }
 
 // Menu animations
 @keyframes menu-sub-dropdown-animation-fade-in {
-    from   { 
-        opacity: 0; 
+    from   {
+        opacity: 0;
     }
 
-    to { 
-        opacity: 1; 
+    to {
+        opacity: 1;
     }
 }
 
 @keyframes menu-sub-dropdown-animation-move-up {
-    from   { 
+    from   {
         margin-top: #{$menu-dropdown-animation-move-offset};
     }
-    
-    to { 
+
+    to {
         margin-top: 0;
     }
 }
 
 @keyframes menu-sub-dropdown-animation-move-down {
-    from   { 
+    from   {
         margin-bottom: #{$menu-dropdown-animation-move-offset};
     }
 
-    to { 
+    to {
         margin-bottom: 0;
     }
 }

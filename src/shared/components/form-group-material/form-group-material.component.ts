@@ -30,7 +30,6 @@ export class FormGroupMaterialComponent implements OnInit, AfterViewInit {
 
   @Input() fieldLabel: string;
   @Input() error: any;
-  @Input() requiredError:string;
   @Input() isSearch: boolean = false;
   @Input() fieldMinLength: number;
   @Input() fieldMaxLength: number;

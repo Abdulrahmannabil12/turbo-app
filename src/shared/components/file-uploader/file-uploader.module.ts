@@ -1,23 +1,29 @@
-import { NgModule } from '@angular/core';
-import { FileUploaderComponent } from './file-uploader.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InlineSVGModule } from 'ng-inline-svg-2';
- 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { DownloadDirective } from 'src/shared/directives/dowenload.directive';
+import { FileDragNDropDirective } from 'src/shared/directives/file-drag-n-drop.directive';
+import { FileUploaderComponent } from './file-uploader.component';
+import { DirectivesModule } from 'src/shared/directives/directive.module';
+
 
 @NgModule({
-  declarations: [ 
-    FileUploaderComponent
+  declarations: [
+    FileUploaderComponent,
+    FileDragNDropDirective,
+  
   ],
   imports: [
     CommonModule,
     MatProgressBarModule,
     InlineSVGModule,
     FormsModule,
-    ReactiveFormsModule,  ],
+    ReactiveFormsModule,
+    DirectivesModule
+  ],
   exports: [FileUploaderComponent],
- 
+
 })
 export class FileUploaderModule { }
