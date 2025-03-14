@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LayoutType } from '../../../core/configs/config';
 import { LayoutInitService } from '../../../core/layout-init.service';
 import { LayoutService } from '../../../core/layout.service';
+import { MenuItem, MenuItemsService } from 'src/app/pages/menuItems.service';
 
 @Component({
   selector: 'app-header-menu',
@@ -10,9 +11,13 @@ import { LayoutService } from '../../../core/layout.service';
   styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-  constructor(private router: Router, private layout: LayoutService, private layoutInit: LayoutInitService) {}
+  constructor(private router: Router, private layout: LayoutService, private layoutInit: LayoutInitService, public menuItemsService: MenuItemsService) {}
+menuItemsList: MenuItem[] = []
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.menuItemsList = this.menuItemsService.MenuItems
+  }
 
   calculateMenuItemCssClass(url: string): string {
     return checkIsActive(this.router.url, url) ? 'active' : '';

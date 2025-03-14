@@ -35,18 +35,37 @@ export class MenuItemsService {
         translateKey: "MENU.SETTING",
         iconUrl: "./assets/media/svg/icons/General/Settings-1.svg",
         children: [
-                    {
-            pathName: "/admin/users",
+          {
             isAuthorized: this.authService.isAdmin(),
-            translateKey: "MENU.USERS",
-            title: "Profile",
+            pathName: "/admin/dashboard",
+            heading: false,
+            title: "Dashboard",
+            translateKey: "MENU.DASHBOARD",
+            iconUrl: "./assets/media/svg/icons/General/Bookmark.svg",
+
           },
 
           {
             pathName: "/admin/users/setting",
             isAuthorized: this.authService.isAdmin(),
-            translateKey: "MENU.SETTING",
+            translateKey: "MENU.USERS",
             title: "Profile",
+            children: [
+              {
+                pathName: "/admin/users",
+                isAuthorized: this.authService.isAdmin(),
+                translateKey: "MENU.SETTING",
+                title: "Profile",
+              },
+
+              {
+                pathName: "/admin/users/setting",
+                isAuthorized: this.authService.isAdmin(),
+                translateKey: "MENU.PROFILE",
+                title: "Profile",
+              },
+
+            ],
           },
 
         ],
