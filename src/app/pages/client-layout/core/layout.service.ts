@@ -14,9 +14,9 @@ import { LightHeaderConfig } from './configs/light-header.config';
 import { LightSidebarConfig } from './configs/light-sidebar.config';
 import { ActivatedRoute } from '@angular/router';
 
-const LAYOUT_CONFIG_LOCAL_STORAGE_KEY = `${environment.appVersion}-layoutConfig`;
-const BASE_LAYOUT_TYPE_LOCAL_STORAGE_KEY = `${environment.appVersion}-baseLayoutType`;
-const defaultBaseLayoutType: LayoutType = 'dark-sidebar';
+const LAYOUT_CONFIG_LOCAL_STORAGE_KEY = `${environment.appVersion}-client-layoutConfig`;
+const BASE_LAYOUT_TYPE_LOCAL_STORAGE_KEY = `${environment.appVersion}-client-baseLayoutType`;
+const defaultBaseLayoutType: LayoutType = 'light-sidebar';
 const defaultLayoutConfig: ILayout = DarkSidebarConfig;
 
 export function getEmptyHTMLAttributes(): HTMLAttributesType {
@@ -151,6 +151,7 @@ export class LayoutService {
   }
 
   getLayoutByType(layoutType: LayoutType | undefined): ILayout {
+
     switch (layoutType) {
       case 'dark-sidebar':
         return DarkSidebarConfig;
