@@ -13,17 +13,27 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/errors/errors.module').then((m) => m.ErrorsModule),
   },
+
   {
-    path: '',
-    canActivate: [AuthGuard],
+    path: 'admin',
     loadChildren: () =>
       import('./_core/layout/layout.module').then((m) => m.LayoutModule),
   },
-  { path: '**', redirectTo: 'error/404' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/client-layout/client-layout.module').then((m) => m.ClientLayoutModule),
+  },
+
+  // Catch-all route for 404 errors
+  {
+    path: '**',
+    redirectTo: 'error/404',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

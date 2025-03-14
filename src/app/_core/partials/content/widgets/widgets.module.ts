@@ -259,4 +259,7 @@ import { SharedModule } from "../../../shared/shared.module";
     CardsWidget18Component
   ],
 })
-export class WidgetsModule {}
+export class WidgetsModule {
+
+
+}

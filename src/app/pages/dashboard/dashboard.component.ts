@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { ModalConfig, ModalComponent } from '../../_core/partials';
 import { DoctorService } from './_service/doctor.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { debounceTime } from 'rxjs';
-import { PageInfoService } from 'src/app/_core/layout';
+import { ModalConfig } from 'src/app/_core/partials/layout/modals/modal.config';
+import { ModalComponent } from 'src/app/_core/partials/layout/modals/modal/modal.component';
+import { PageInfoService } from 'src/app/_core/layout/core/page-info.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,7 +43,7 @@ export class DashboardComponent {
       }]);
     }, 5);
   }
- 
+
   async openModal() {
     return await this.modalComponent.open();
   }

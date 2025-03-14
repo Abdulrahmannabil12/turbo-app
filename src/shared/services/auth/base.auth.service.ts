@@ -1,6 +1,7 @@
-import jwt_decode from 'jwt-decode';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ObjectHasValue } from 'src/shared/helper/helper';
@@ -80,7 +81,7 @@ export class BaseAuthService extends HttpService {
 
   getUserData(): any {
     const token = this.sessionService.getToken();
-    return (token) ? jwt_decode(this.sessionService.getToken()) : null;
+    return (token) ? jwtDecode(this.sessionService.getToken()) : null;
   }
 
   public isLogin(): boolean {
@@ -104,7 +105,7 @@ export class BaseAuthService extends HttpService {
     this.isLoggedSource.next(isLogin);
   }
 
- 
+
 
   public isAuthenticatedUrl(fullurl: string): boolean {
     // return true;

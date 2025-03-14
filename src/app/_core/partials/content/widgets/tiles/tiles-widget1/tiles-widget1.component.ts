@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LayoutService } from '../../../../../layout';
-
+import { LayoutService } from 'src/app/_core/layout/core/layout.service';
+ 
 @Component({
   selector: 'app-tiles-widget1',
   templateUrl: './tiles-widget1.component.html',

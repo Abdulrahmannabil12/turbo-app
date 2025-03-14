@@ -29,9 +29,11 @@ import { SharedModule } from "../../_core/shared/shared.module";
     ProfileRoutingModule,
     InlineSVGModule,
     DropdownMenusModule,
-    WidgetsModule,
+     WidgetsModule,
     CardsModule,
     SharedModule
   ],
 })
-export class ProfileModule {}
+export class ProfileModule {
+
+}

@@ -80,7 +80,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentLayoutType = this.layout.currentLayoutTypeSubject.value;
-
+        console.log(event)
         const nextLayoutType: LayoutType =
           this.activatedRoute?.firstChild?.snapshot.data.layout ||
           this.layout.getBaseLayoutTypeFromLocalStorage();
