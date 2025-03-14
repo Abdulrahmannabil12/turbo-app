@@ -40,7 +40,7 @@ $app-header-light-separator-color: #E4E6EF;
 $app-header-light-separator-color-dark: $border-color-dark;
 
 // Header dark
-$app-header-dark-bg-color:$coal-600;
+$app-header-dark-bg-color: $primary;
 $app-header-dark-separator-color: #282a3d;
 $app-header-dark-scrollbar-color: #3b3b64;
 $app-header-dark-scrollbar-color-hover: lighten($app-header-dark-scrollbar-color, 3%);

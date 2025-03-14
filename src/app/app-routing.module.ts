@@ -21,6 +21,9 @@ export const routes: Routes = [
   },
   {
     path: '',
+    data:{
+      layout:"dark-header"
+    },
     loadChildren: () =>
       import('./pages/client-layout/client-layout.module').then((m) => m.ClientLayoutModule),
   },

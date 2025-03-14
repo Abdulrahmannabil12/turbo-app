@@ -49667,10 +49667,10 @@ body,
   color: var(--bs-primary);
 }
 [data-kt-app-layout=dark-header] .app-header-menu .menu > .menu-item > .menu-link {
-  color: #858585;
+  color: --bs-primary;
 }
 [data-kt-app-layout=dark-header] .app-header-menu .menu > .menu-item > .menu-link .menu-title {
-  color: #858585;
+  color: --bs-primary;
 }
 [data-kt-app-layout=dark-header] .app-header-menu .menu > .menu-item > .menu-link .menu-icon,
 [data-kt-app-layout=dark-header] .app-header-menu .menu > .menu-item > .menu-link .menu-icon .svg-icon,

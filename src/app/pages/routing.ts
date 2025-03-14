@@ -46,6 +46,7 @@ const ClientRouting: Routes = [
 
   {
     path: '',
+  
     children: [
       {
         path: 'profile',
