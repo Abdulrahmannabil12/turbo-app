@@ -1,0 +1,75 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #e82727;
+  /* Tomato Red */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  background-color: #247c5a;
+  /* Green Color */
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero button {
+  background-color: #e82727;
+  /* Tomato Red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.features {
+  padding: 20px;
+  text-align: center;
+}
+
+.car-card {
+  display: inline-block;
+  width: 30%;
+  margin: 10px 1%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.car-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #e82727;
+  /* Tomato Red */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}

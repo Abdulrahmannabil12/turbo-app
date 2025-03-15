@@ -1,0 +1,104 @@
+<header>
+  <nav id="nav-bar" class="navbar navbar-expand-sm navbar-light bg-white p-3">
+    <div class="container">
+      <button class="navbar-brand" [routerLink]="'/'">
+        <span [inlineSVG]="'./assets/media/landing/SurgiBook Logo.svg'"></span>
+      </button>
+      <button
+        (click)="toggleNavbarCollapsing()"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        [class.collapse]="navbarCollapsed"
+        class="navbar-collapse"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2 flex-grow-1">
+          <li class="nav-item nav-item-1">
+            <button
+              class="nav-link active"
+              aria-current="page"
+              (click)="goToHome()"
+            >
+              Home
+            </button>
+          </li>
+
+          <!-- <li class="nav-item nav-item-2">
+            <button
+              class="nav-link active"
+              aria-current="page"
+              (click)="goToAbout()"
+            >
+              About
+            </button>
+          </li> -->
+          <li class="nav-item nav-item-3">
+            <button
+              class="nav-link active"
+              aria-current="page"
+              (click)="goToHowItWorks()"
+            >
+              How it work
+            </button>
+          </li>
+       
+          <li class="nav-item nav-item-4">
+            <button
+              class="nav-link active"
+              aria-current="page"
+              (click)="goToContact()"
+            >
+              Contact
+            </button>
+          </li>
+             <li class="nav-item nav-item-3">
+            <button
+              class="nav-link active"
+              aria-current="page"
+              (click)="goToPolicies()"
+            >
+              Privacy policy
+            </button>
+          </li>
+          <li
+            class="d-flex gap-2 flex-grow-1 nav-item-5"
+            style="margin-right: auto; justify-content: end"
+            *ngIf="!currentUser"
+          >
+            <button
+              class="btn btn-ligh login-btn shadow"
+              [routerLink]="'auth/login'"
+            >
+              Log In
+            </button>
+
+            <!-- <button class="btn btn-primary" routerLink="/auth/registration">
+              Sign Up
+            </button> -->
+          </li>
+          <li
+            class="d-flex gap-2 flex-grow-1 nav-item-5"
+            style="margin-right: auto; justify-content: end"
+            *ngIf="currentUser"
+          >
+            <button
+              class="btn btn-ligh login-btn shadow"
+              [routerLink]="'admin/dashboard'"
+            >
+              Admin
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

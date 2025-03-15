@@ -1,0 +1,37 @@
+.post-content.container-wrapper {
+ 
+}
+ 
+.container-wrapper, .entry-content {
+  padding: 20px 15px;
+}
+.container-wrapper {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 30px;
+}
+ .entry-content, #the-post .entry-content p {
+  font-size: 18px;
+  line-height: 2;
+  text-transform: capitalize;
+}
+.post-content .post-title {
+  color: #003E6C;
+}
+.entry ul li, .entry ol ul li, .comment-content ul li, .comment-content ol ul li {
+  list-style: disc;
+    list-style-image: none;
+  list-style-image: none;
+}
+.entry ol, .entry ul {
+  padding-right: 15px;
+  padding-left: 0;
+  margin-right: 20px;
+  margin-left: 0;
+}
+content ol, .comment-content ul {
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-left: 20px;
+}

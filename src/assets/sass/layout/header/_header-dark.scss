@@ -8,6 +8,7 @@
     border-bottom: 0 !important;
 
     .btn-custom {
+          border-radius: 1em;
       @include button-custom-variant($color:#ffff,
         $icon-color: var(--#{$prefix}primary),
         $border-color: null,
@@ -16,7 +17,7 @@
         $icon-color-active: var(--#{$prefix}primary),
         $border-color-active: null,
         $bg-color-active:var(--#{$prefix}primary-active),
-      )
+       )
     }
 
     .btn-custom app-keenicon .ki-duotone {

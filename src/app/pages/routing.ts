@@ -46,12 +46,12 @@ const ClientRouting: Routes = [
 
   {
     path: '',
-  
+
     children: [
       {
-        path: 'profile',
+        path: '',
         loadChildren: () =>
-          import('../modules/profile/profile.module').then((m) => m.ProfileModule),
+          import('../modules/landingPage/landingPage.module').then((m) => m.landingPageModule),
       },
       {
         path: 'users',

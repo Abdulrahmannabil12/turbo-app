@@ -17,6 +17,8 @@
         }
 
         .btn-custom {
+
+       
             @include button-custom-variant(
                 $color:#B5B5C3,
                 $icon-color: #B5B5C3,
@@ -25,7 +27,8 @@
                 $color-active: #B5B5C3,
                 $icon-color-active: null,
                 $border-color-active: null,
-                $bg-color-active: rgba(63, 66, 84, 0.35)
+                $bg-color-active: rgba(63, 66, 84, 0.35),
+
             );
         }
 
