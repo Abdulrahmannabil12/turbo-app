@@ -36,10 +36,10 @@
                 }
 
                 @include menu-link-default-state(
-                    $title-color: $gray-400-dark,
-                    $icon-color:  $gray-400-dark,
-                    $bullet-color:$gray-400-dark,
-                    $arrow-color: $gray-400-dark,
+                    $title-color: $gray-700-dark,
+                    $icon-color:  $gray-700-dark,
+                    $bullet-color:$gray-700-dark,
+                    $arrow-color: $gray-700-dark,
                     $bg-color: null,
                     $all-links: true
                 );

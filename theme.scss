@@ -385,7 +385,7 @@ html {
   --mat-option-label-text-color: #1a1b1f;
   --mat-option-hover-state-layer-color: rgba(26, 27, 31, 0.08);
   --mat-option-focus-state-layer-color: rgba(26, 27, 31, 0.12);
-  --mat-option-selected-state-layer-color: #0d948840;
+  --mat-option-selected-state-layer-color: #247c5a40;
   --mat-option-label-text-font: Roboto, sans-serif;
   --mat-option-label-text-line-height: 1.25rem;
   --mat-option-label-text-size: 1rem;
@@ -397,13 +397,13 @@ html {
   --mat-optgroup-label-text-size: 0.875rem;
   --mat-optgroup-label-text-tracking: 0.006rem;
   --mat-optgroup-label-text-weight: 500;
-  --mat-full-pseudo-checkbox-selected-icon-color: #0d9488;
+  --mat-full-pseudo-checkbox-selected-icon-color: #247c5a;
   --mat-full-pseudo-checkbox-selected-checkmark-color: #ffffff;
   --mat-full-pseudo-checkbox-unselected-icon-color: #44474e;
   --mat-full-pseudo-checkbox-disabled-selected-checkmark-color: #faf9fd;
   --mat-full-pseudo-checkbox-disabled-unselected-icon-color: rgba(26, 27, 31, 0.38);
   --mat-full-pseudo-checkbox-disabled-selected-icon-color: rgba(26, 27, 31, 0.38);
-  --mat-minimal-pseudo-checkbox-selected-checkmark-color: #0d9488;
+  --mat-minimal-pseudo-checkbox-selected-checkmark-color: #247c5a;
   --mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color: rgba(26, 27, 31, 0.38);
   --mdc-elevated-card-container-color: #f4f3f6;
   --mdc-elevated-card-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
@@ -424,7 +424,7 @@ html {
   --mat-card-subtitle-text-size: 1rem;
   --mat-card-subtitle-text-tracking: 0.009rem;
   --mat-card-subtitle-text-weight: 500;
-  --mdc-linear-progress-active-indicator-color: #0d9488;
+  --mdc-linear-progress-active-indicator-color: #247c5a;
   --mdc-linear-progress-track-color: #e0e2ec;
   --mdc-linear-progress-active-indicator-height: 4px;
   --mdc-linear-progress-track-height: 4px;
@@ -437,9 +437,9 @@ html {
   --mdc-plain-tooltip-supporting-text-weight: 400;
   --mdc-plain-tooltip-supporting-text-tracking: 0.025rem;
   --mdc-plain-tooltip-container-shape: 4px;
-  --mdc-filled-text-field-caret-color: #0d9488;
-  --mdc-filled-text-field-focus-active-indicator-color: #0d9488;
-  --mdc-filled-text-field-focus-label-text-color: #0d9488;
+  --mdc-filled-text-field-caret-color: #247c5a;
+  --mdc-filled-text-field-focus-active-indicator-color: #247c5a;
+  --mdc-filled-text-field-focus-label-text-color: #247c5a;
   --mdc-filled-text-field-container-color: #e0e2ec;
   --mdc-filled-text-field-disabled-container-color: rgba(26, 27, 31, 0.04);
   --mdc-filled-text-field-label-text-color: #44474e;
@@ -464,9 +464,9 @@ html {
   --mdc-filled-text-field-active-indicator-height: 1px;
   --mdc-filled-text-field-focus-active-indicator-height: 2px;
   --mdc-filled-text-field-container-shape: 4px;
-  --mdc-outlined-text-field-caret-color: #0d9488;
-  --mdc-outlined-text-field-focus-outline-color: #0d9488;
-  --mdc-outlined-text-field-focus-label-text-color: #0d9488;
+  --mdc-outlined-text-field-caret-color: #247c5a;
+  --mdc-outlined-text-field-focus-outline-color: #247c5a;
+  --mdc-outlined-text-field-focus-label-text-color: #247c5a;
   --mdc-outlined-text-field-label-text-color: #44474e;
   --mdc-outlined-text-field-hover-label-text-color: #1a1b1f;
   --mdc-outlined-text-field-disabled-label-text-color: rgba(26, 27, 31, 0.38);
@@ -489,7 +489,7 @@ html {
   --mdc-outlined-text-field-outline-width: 1px;
   --mdc-outlined-text-field-focus-outline-width: 2px;
   --mdc-outlined-text-field-container-shape: 4px;
-  --mat-form-field-focus-select-arrow-color: #0d9488;
+  --mat-form-field-focus-select-arrow-color: #247c5a;
   --mat-form-field-disabled-input-text-placeholder-color: rgba(26, 27, 31, 0.38);
   --mat-form-field-state-layer-color: #1a1b1f;
   --mat-form-field-error-text-color: #ba1a1a;
@@ -527,7 +527,7 @@ html {
   --mat-select-placeholder-text-color: #44474e;
   --mat-select-enabled-arrow-color: #44474e;
   --mat-select-disabled-arrow-color: rgba(26, 27, 31, 0.38);
-  --mat-select-focused-arrow-color: #0d9488;
+  --mat-select-focused-arrow-color: #247c5a;
   --mat-select-invalid-arrow-color: #ba1a1a;
   --mat-select-trigger-text-font: Roboto, sans-serif;
   --mat-select-trigger-text-line-height: 1.5rem;
@@ -568,7 +568,7 @@ html {
   --mdc-chip-hover-state-layer-opacity: 0.08;
   --mdc-chip-selected-hover-state-layer-opacity: 0.08;
   --mdc-chip-disabled-label-text-color: rgba(26, 27, 31, 0.38);
-  --mdc-chip-elevated-selected-container-color: #0d948840;
+  --mdc-chip-elevated-selected-container-color: #247c5a40;
   --mdc-chip-flat-disabled-selected-container-color: rgba(26, 27, 31, 0.12);
   --mdc-chip-focus-state-layer-color: #44474e;
   --mdc-chip-hover-state-layer-color: #44474e;
@@ -614,17 +614,17 @@ html {
   --mdc-switch-unselected-focus-state-layer-opacity: 0.12;
   --mdc-switch-unselected-hover-state-layer-opacity: 0.08;
   --mdc-switch-unselected-pressed-state-layer-opacity: 0.12;
-  --mdc-switch-selected-focus-state-layer-color: #0d9488;
+  --mdc-switch-selected-focus-state-layer-color: #247c5a;
   --mdc-switch-selected-handle-color: #ffffff;
-  --mdc-switch-selected-hover-state-layer-color: #0d9488;
-  --mdc-switch-selected-pressed-state-layer-color: #0d9488;
+  --mdc-switch-selected-hover-state-layer-color: #247c5a;
+  --mdc-switch-selected-pressed-state-layer-color: #247c5a;
   --mdc-switch-selected-focus-handle-color: #d7e3ff;
   --mdc-switch-selected-hover-handle-color: #d7e3ff;
   --mdc-switch-selected-pressed-handle-color: #d7e3ff;
-  --mdc-switch-selected-focus-track-color: #0d9488;
-  --mdc-switch-selected-hover-track-color: #0d9488;
-  --mdc-switch-selected-pressed-track-color: #0d9488;
-  --mdc-switch-selected-track-color: #0d9488;
+  --mdc-switch-selected-focus-track-color: #247c5a;
+  --mdc-switch-selected-hover-track-color: #247c5a;
+  --mdc-switch-selected-pressed-track-color: #247c5a;
+  --mdc-switch-selected-track-color: #247c5a;
   --mdc-switch-disabled-selected-handle-color: #faf9fd;
   --mdc-switch-disabled-selected-icon-color: #1a1b1f;
   --mdc-switch-disabled-selected-track-color: #1a1b1f;
@@ -688,15 +688,15 @@ html {
   --mdc-radio-unselected-focus-icon-color: #1a1b1f;
   --mdc-radio-unselected-icon-color: #44474e;
   --mdc-radio-unselected-pressed-icon-color: #1a1b1f;
-  --mdc-radio-selected-focus-icon-color: #0d9488;
-  --mdc-radio-selected-hover-icon-color: #0d9488;
-  --mdc-radio-selected-icon-color: #0d9488;
-  --mdc-radio-selected-pressed-icon-color: #0d9488;
+  --mdc-radio-selected-focus-icon-color: #247c5a;
+  --mdc-radio-selected-hover-icon-color: #247c5a;
+  --mdc-radio-selected-icon-color: #247c5a;
+  --mdc-radio-selected-pressed-icon-color: #247c5a;
   --mdc-radio-state-layer-size: 40px;
   --mdc-radio-disabled-selected-icon-opacity: 0.38;
   --mdc-radio-disabled-unselected-icon-opacity: 0.38;
   --mat-radio-ripple-color: #1a1b1f;
-  --mat-radio-checked-ripple-color: #0d9488;
+  --mat-radio-checked-ripple-color: #247c5a;
   --mat-radio-disabled-label-color: rgba(26, 27, 31, 0.38);
   --mat-radio-label-text-color: #1a1b1f;
   --mat-radio-label-text-font: Roboto, sans-serif;
@@ -706,17 +706,17 @@ html {
   --mat-radio-label-text-weight: 400;
   --mat-radio-touch-target-display: block;
   --mdc-slider-handle-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mdc-slider-handle-color: #0d9488;
-  --mdc-slider-focus-handle-color: #0d9488;
-  --mdc-slider-hover-handle-color: #0d9488;
-  --mdc-slider-active-track-color: #0d9488;
+  --mdc-slider-handle-color: #247c5a;
+  --mdc-slider-focus-handle-color: #247c5a;
+  --mdc-slider-hover-handle-color: #247c5a;
+  --mdc-slider-active-track-color: #247c5a;
   --mdc-slider-inactive-track-color: #e0e2ec;
   --mdc-slider-with-tick-marks-inactive-container-color: #44474e;
   --mdc-slider-with-tick-marks-active-container-color: #ffffff;
   --mdc-slider-disabled-active-track-color: #1a1b1f;
   --mdc-slider-disabled-handle-color: #1a1b1f;
   --mdc-slider-disabled-inactive-track-color: #1a1b1f;
-  --mdc-slider-label-container-color: #0d9488;
+  --mdc-slider-label-container-color: #247c5a;
   --mdc-slider-label-label-text-color: #ffffff;
   --mdc-slider-with-overlap-handle-outline-color: #ffffff;
   --mdc-slider-with-tick-marks-disabled-container-color: #1a1b1f;
@@ -737,7 +737,7 @@ html {
   --mdc-slider-with-tick-marks-container-shape: 9999px;
   --mdc-slider-with-tick-marks-container-size: 2px;
   --mdc-slider-with-tick-marks-inactive-container-opacity: 0.38;
-  --mat-slider-ripple-color: #0d9488;
+  --mat-slider-ripple-color: #247c5a;
   --mat-slider-hover-state-layer-color: rgba(0, 92, 187, 0.05);
   --mat-slider-focus-state-layer-color: rgba(0, 92, 187, 0.2);
   --mat-slider-value-indicator-width: 28px;
@@ -778,7 +778,7 @@ html {
   --mdc-list-list-item-leading-icon-color: #44474e;
   --mdc-list-list-item-trailing-supporting-text-color: #44474e;
   --mdc-list-list-item-trailing-icon-color: #44474e;
-  --mdc-list-list-item-selected-trailing-icon-color: #0d9488;
+  --mdc-list-list-item-selected-trailing-icon-color: #247c5a;
   --mdc-list-list-item-disabled-label-text-color: #1a1b1f;
   --mdc-list-list-item-disabled-leading-icon-color: #1a1b1f;
   --mdc-list-list-item-disabled-trailing-icon-color: #1a1b1f;
@@ -814,7 +814,7 @@ html {
   --mdc-list-list-item-disabled-label-text-opacity: 0.3;
   --mdc-list-list-item-disabled-leading-icon-opacity: 0.38;
   --mdc-list-list-item-disabled-trailing-icon-opacity: 0.38;
-  --mat-list-active-indicator-color: #0d948840;
+  --mat-list-active-indicator-color: #247c5a40;
   --mat-list-list-item-leading-icon-start-space: 16px;
   --mat-list-list-item-leading-icon-end-space: 16px;
   --mat-list-active-indicator-shape: 9999px;
@@ -833,7 +833,7 @@ html {
   --mat-paginator-form-field-container-vertical-padding: 8px;
   --mat-paginator-touch-target-display: block;
   --mdc-secondary-navigation-tab-container-height: 48px;
-  --mdc-tab-indicator-active-indicator-color: #0d9488;
+  --mdc-tab-indicator-active-indicator-color: #247c5a;
   --mdc-tab-indicator-active-indicator-height: 2px;
   --mdc-tab-indicator-active-indicator-shape: 0;
   --mat-tab-header-divider-color: #e0e2ec;
@@ -846,8 +846,8 @@ html {
   --mat-tab-header-inactive-hover-label-text-color: #1a1b1f;
   --mat-tab-header-active-focus-label-text-color: #1a1b1f;
   --mat-tab-header-active-hover-label-text-color: #1a1b1f;
-  --mat-tab-header-active-focus-indicator-color: #0d9488;
-  --mat-tab-header-active-hover-indicator-color: #0d9488;
+  --mat-tab-header-active-focus-indicator-color: #247c5a;
+  --mat-tab-header-active-hover-indicator-color: #247c5a;
   --mat-tab-header-label-text-font: Roboto, sans-serif;
   --mat-tab-header-label-text-size: 0.875rem;
   --mat-tab-header-label-text-tracking: 0.006rem;
@@ -861,22 +861,22 @@ html {
   --mdc-checkbox-unselected-focus-state-layer-opacity: 0.12;
   --mdc-checkbox-unselected-hover-state-layer-opacity: 0.08;
   --mdc-checkbox-unselected-pressed-state-layer-opacity: 0.12;
-  --mdc-checkbox-selected-pressed-icon-color: #0d9488;
+  --mdc-checkbox-selected-pressed-icon-color: #247c5a;
   --mdc-checkbox-disabled-selected-icon-color: rgba(26, 27, 31, 0.38);
   --mdc-checkbox-disabled-unselected-icon-color: rgba(26, 27, 31, 0.38);
   --mdc-checkbox-selected-checkmark-color: #ffffff;
-  --mdc-checkbox-selected-focus-icon-color: #0d9488;
-  --mdc-checkbox-selected-hover-icon-color: #0d9488;
-  --mdc-checkbox-selected-icon-color: #0d9488;
+  --mdc-checkbox-selected-focus-icon-color: #247c5a;
+  --mdc-checkbox-selected-hover-icon-color: #247c5a;
+  --mdc-checkbox-selected-icon-color: #247c5a;
   --mdc-checkbox-unselected-focus-icon-color: #1a1b1f;
   --mdc-checkbox-unselected-hover-icon-color: #1a1b1f;
   --mdc-checkbox-unselected-icon-color: #44474e;
-  --mdc-checkbox-selected-focus-state-layer-color: #0d9488;
-  --mdc-checkbox-selected-hover-state-layer-color: #0d9488;
+  --mdc-checkbox-selected-focus-state-layer-color: #247c5a;
+  --mdc-checkbox-selected-hover-state-layer-color: #247c5a;
   --mdc-checkbox-selected-pressed-state-layer-color: #1a1b1f;
   --mdc-checkbox-unselected-focus-state-layer-color: #1a1b1f;
   --mdc-checkbox-unselected-hover-state-layer-color: #1a1b1f;
-  --mdc-checkbox-unselected-pressed-state-layer-color: #0d9488;
+  --mdc-checkbox-unselected-pressed-state-layer-color: #247c5a;
   --mdc-checkbox-state-layer-size: 40px;
   --mat-checkbox-disabled-label-color: rgba(26, 27, 31, 0.38);
   --mat-checkbox-label-text-color: #1a1b1f;
@@ -886,7 +886,7 @@ html {
   --mat-checkbox-label-text-tracking: 0.016rem;
   --mat-checkbox-label-text-weight: 400;
   --mat-checkbox-touch-target-display: block;
-  --mdc-text-button-label-text-color: #0d9488;
+  --mdc-text-button-label-text-color: #247c5a;
   --mdc-text-button-disabled-label-text-color: rgba(26, 27, 31, 0.38);
   --mdc-text-button-label-text-font: Roboto, sans-serif;
   --mdc-text-button-label-text-size: 0.875rem;
@@ -900,7 +900,7 @@ html {
   --mdc-protected-button-hover-container-elevation-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   --mdc-protected-button-pressed-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --mdc-protected-button-container-color: #faf9fd;
-  --mdc-protected-button-label-text-color: #0d9488;
+  --mdc-protected-button-label-text-color: #247c5a;
   --mdc-protected-button-disabled-container-color: rgba(26, 27, 31, 0.12);
   --mdc-protected-button-disabled-label-text-color: rgba(26, 27, 31, 0.38);
   --mdc-protected-button-label-text-font: Roboto, sans-serif;
@@ -909,7 +909,7 @@ html {
   --mdc-protected-button-label-text-weight: 500;
   --mdc-protected-button-container-height: 40px;
   --mdc-protected-button-container-shape: 9999px;
-  --mdc-filled-button-container-color: #0d9488;
+  --mdc-filled-button-container-color: #247c5a;
   --mdc-filled-button-label-text-color: #ffffff;
   --mdc-filled-button-disabled-container-color: rgba(26, 27, 31, 0.12);
   --mdc-filled-button-disabled-label-text-color: rgba(26, 27, 31, 0.38);
@@ -921,7 +921,7 @@ html {
   --mdc-filled-button-container-shape: 9999px;
   --mdc-outlined-button-disabled-outline-color: rgba(26, 27, 31, 0.12);
   --mdc-outlined-button-disabled-label-text-color: rgba(26, 27, 31, 0.38);
-  --mdc-outlined-button-label-text-color: #0d9488;
+  --mdc-outlined-button-label-text-color: #247c5a;
   --mdc-outlined-button-outline-color: #74777f;
   --mdc-outlined-button-label-text-font: Roboto, sans-serif;
   --mdc-outlined-button-label-text-size: 0.875rem;
@@ -930,7 +930,7 @@ html {
   --mdc-outlined-button-container-height: 40px;
   --mdc-outlined-button-outline-width: 1px;
   --mdc-outlined-button-container-shape: 9999px;
-  --mat-text-button-state-layer-color: #0d9488;
+  --mat-text-button-state-layer-color: #247c5a;
   --mat-text-button-disabled-state-layer-color: #44474e;
   --mat-text-button-ripple-color: rgba(0, 92, 187, 0.12);
   --mat-text-button-hover-state-layer-opacity: 0.08;
@@ -941,7 +941,7 @@ html {
   --mat-text-button-with-icon-horizontal-padding: 16px;
   --mat-text-button-icon-spacing: 8px;
   --mat-text-button-icon-offset: -4px;
-  --mat-protected-button-state-layer-color: #0d9488;
+  --mat-protected-button-state-layer-color: #247c5a;
   --mat-protected-button-disabled-state-layer-color: #44474e;
   --mat-protected-button-ripple-color: rgba(0, 92, 187, 0.12);
   --mat-protected-button-hover-state-layer-opacity: 0.08;
@@ -961,7 +961,7 @@ html {
   --mat-filled-button-horizontal-padding: 24px;
   --mat-filled-button-icon-spacing: 8px;
   --mat-filled-button-icon-offset: -8px;
-  --mat-outlined-button-state-layer-color: #0d9488;
+  --mat-outlined-button-state-layer-color: #247c5a;
   --mat-outlined-button-disabled-state-layer-color: #44474e;
   --mat-outlined-button-ripple-color: rgba(0, 92, 187, 0.12);
   --mat-outlined-button-hover-state-layer-opacity: 0.08;
@@ -1052,7 +1052,7 @@ html {
   --mat-table-footer-container-height: 52px;
   --mat-table-row-item-container-height: 52px;
   --mat-table-row-item-outline-width: 1px;
-  --mdc-circular-progress-active-indicator-color: #0d9488;
+  --mdc-circular-progress-active-indicator-color: #247c5a;
   --mdc-circular-progress-active-indicator-width: 4px;
   --mdc-circular-progress-size: 48px;
   --mat-badge-background-color: #ba1a1a;
@@ -1095,7 +1095,7 @@ html {
   --mat-standard-button-toggle-focus-state-layer-opacity: 0.12;
   --mat-standard-button-toggle-text-color: #1a1b1f;
   --mat-standard-button-toggle-state-layer-color: #1a1b1f;
-  --mat-standard-button-toggle-selected-state-background-color: #0d948840;
+  --mat-standard-button-toggle-selected-state-background-color: #247c5a40;
   --mat-standard-button-toggle-selected-state-text-color: #131c2b;
   --mat-standard-button-toggle-disabled-state-text-color: rgba(26, 27, 31, 0.38);
   --mat-standard-button-toggle-disabled-selected-state-text-color: rgba(26, 27, 31, 0.38);
@@ -1111,15 +1111,15 @@ html {
   --mat-standard-button-toggle-background-color: transparent;
   --mat-standard-button-toggle-disabled-state-background-color: transparent;
   --mat-datepicker-calendar-date-selected-state-text-color: #ffffff;
-  --mat-datepicker-calendar-date-selected-state-background-color: #0d9488;
+  --mat-datepicker-calendar-date-selected-state-background-color: #247c5a;
   --mat-datepicker-calendar-date-selected-disabled-state-background-color: rgba(26, 27, 31, 0.38);
-  --mat-datepicker-calendar-date-today-selected-state-outline-color: #0d9488;
+  --mat-datepicker-calendar-date-today-selected-state-outline-color: #247c5a;
   --mat-datepicker-calendar-date-focus-state-background-color: rgba(26, 27, 31, 0.12);
   --mat-datepicker-calendar-date-hover-state-background-color: rgba(26, 27, 31, 0.08);
   --mat-datepicker-toggle-active-state-icon-color: #44474e;
   --mat-datepicker-calendar-date-in-range-state-background-color: #d7e3ff;
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: #e0e0ff;
-  --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #0d948840;
+  --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #247c5a40;
   --mat-datepicker-calendar-date-in-overlap-range-selected-state-background-color: #565e71;
   --mat-datepicker-toggle-icon-color: #44474e;
   --mat-datepicker-calendar-body-label-text-color: #1a1b1f;
@@ -1127,11 +1127,11 @@ html {
   --mat-datepicker-calendar-period-button-icon-color: #44474e;
   --mat-datepicker-calendar-navigation-button-icon-color: #44474e;
   --mat-datepicker-calendar-header-text-color: #44474e;
-  --mat-datepicker-calendar-date-today-outline-color: #0d9488;
+  --mat-datepicker-calendar-date-today-outline-color: #247c5a;
   --mat-datepicker-calendar-date-today-disabled-state-outline-color: rgba(26, 27, 31, 0.38);
   --mat-datepicker-calendar-date-text-color: #1a1b1f;
   --mat-datepicker-calendar-date-disabled-state-text-color: rgba(26, 27, 31, 0.38);
-  --mat-datepicker-calendar-date-preview-state-outline-color: #0d9488;
+  --mat-datepicker-calendar-date-preview-state-outline-color: #247c5a;
   --mat-datepicker-range-input-separator-color: #1a1b1f;
   --mat-datepicker-range-input-disabled-state-separator-color: rgba(26, 27, 31, 0.38);
   --mat-datepicker-range-input-disabled-state-text-color: rgba(26, 27, 31, 0.38);
@@ -1192,9 +1192,9 @@ html {
   --mat-sidenav-container-width: 360px;
   --mat-sidenav-container-divider-color: transparent;
   --mat-stepper-header-icon-foreground-color: #faf9fd;
-  --mat-stepper-header-selected-state-icon-background-color: #0d9488;
+  --mat-stepper-header-selected-state-icon-background-color: #247c5a;
   --mat-stepper-header-selected-state-icon-foreground-color: #ffffff;
-  --mat-stepper-header-edit-state-icon-background-color: #0d9488;
+  --mat-stepper-header-edit-state-icon-background-color: #247c5a;
   --mat-stepper-header-edit-state-icon-foreground-color: #ffffff;
   --mat-stepper-container-color: #faf9fd;
   --mat-stepper-line-color: #74777f;
@@ -1240,14 +1240,14 @@ html {
 }
 
 .mat-primary {
-  --mat-stepper-header-selected-state-icon-background-color: #0d9488;
+  --mat-stepper-header-selected-state-icon-background-color: #247c5a;
   --mat-stepper-header-selected-state-icon-foreground-color: #ffffff;
-  --mat-stepper-header-edit-state-icon-background-color: #0d9488;
+  --mat-stepper-header-edit-state-icon-background-color: #247c5a;
   --mat-stepper-header-edit-state-icon-foreground-color: #ffffff
 }
 
 .mat-primary.mat-icon {
-  --mat-icon-color: #0d9488
+  --mat-icon-color: #247c5a
 }
 
 .mat-primary.mat-mdc-checkbox {
@@ -1262,8 +1262,8 @@ html {
 }
 
 .mat-primary.mat-mdc-button-base {
-  --mdc-icon-button-icon-color: #0d9488;
-  --mat-icon-button-state-layer-color: #0d9488;
+  --mdc-icon-button-icon-color: #247c5a;
+  --mat-icon-button-state-layer-color: #247c5a;
   --mat-icon-button-ripple-color: rgba(0, 92, 187, 0.12)
 }
 
@@ -1274,7 +1274,7 @@ html {
 }
 
 .mat-badge {
-  --mat-badge-background-color: #0d9488;
+  --mat-badge-background-color: #247c5a;
   --mat-badge-text-color: #ffffff;
   --mat-badge-disabled-state-background-color: rgba(0, 92, 187, 0.38);
   --mat-badge-disabled-state-text-color: #ffffff
@@ -1717,7 +1717,7 @@ html {
 .mat-mdc-select-panel-above div.mat-mdc-select-panel {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  box-shadow: 0 0 20px #0d94886b;
+  box-shadow: 0 0 20px #247c5a6b;
   transform-origin: bottom center;
   scrollbar-width: none;
 }
