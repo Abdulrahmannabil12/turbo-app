@@ -16,6 +16,9 @@ export const routes: Routes = [
 
   {
     path: 'admin',
+    data: {
+      layout: "dark-sidebar"
+    },
     loadChildren: () =>
       import('./_core/layout/layout.module').then((m) => m.LayoutModule),
   },

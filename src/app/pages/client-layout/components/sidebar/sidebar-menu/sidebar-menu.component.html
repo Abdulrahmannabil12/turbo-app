@@ -92,6 +92,7 @@
             class="menu-link without-sub"
             [routerLink]="menuItem.pathName"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
             ><span class="menu-icon">
               <span
                 [inlineSVG]="menuItem.iconUrl"

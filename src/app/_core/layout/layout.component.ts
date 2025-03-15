@@ -85,10 +85,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
           this.activatedRoute?.firstChild?.snapshot.data.layout ||
           this.layout.getBaseLayoutTypeFromLocalStorage();
 
-        if (currentLayoutType !== nextLayoutType || !currentLayoutType) {
-          this.layout.currentLayoutTypeSubject.next(nextLayoutType);
-          this.initService.reInitProps(nextLayoutType);
-        }
+        this.layout.currentLayoutTypeSubject.next(nextLayoutType);
+        this.initService.reInitProps(nextLayoutType);
+
       }
     });
   }

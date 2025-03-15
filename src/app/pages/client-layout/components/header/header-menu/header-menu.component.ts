@@ -11,12 +11,12 @@ import { MenuItem, MenuItemsService } from 'src/app/pages/menuItems.service';
   styleUrls: ['./header-menu.component.scss'],
 })
 export class HeaderMenuComponent implements OnInit {
-  constructor(private router: Router, private layout: LayoutService, private layoutInit: LayoutInitService, public menuItemsService: MenuItemsService) {}
-menuItemsList: MenuItem[] = []
+  constructor(private router: Router, private layout: LayoutService, private layoutInit: LayoutInitService, public menuItemsService: MenuItemsService) { }
+  menuItemsList: MenuItem[] = []
 
 
   ngOnInit(): void {
-    this.menuItemsList = this.menuItemsService.MenuItems
+    this.menuItemsList = this.menuItemsService.ClientMenuItems
   }
 
   calculateMenuItemCssClass(url: string): string {
@@ -28,7 +28,7 @@ menuItemsList: MenuItem[] = []
   }
 
   setToolbar(toolbarLayout: 'classic' | 'accounting' | 'extended' | 'reports' | 'saas') {
-    const currentConfig = {...this.layout.layoutConfigSubject.value};
+    const currentConfig = { ...this.layout.layoutConfigSubject.value };
     if (currentConfig && currentConfig.app && currentConfig.app.toolbar) {
       currentConfig.app.toolbar.layout = toolbarLayout;
       this.layout.saveBaseConfig(currentConfig)

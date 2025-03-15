@@ -12,7 +12,7 @@ export class SidebarMenuComponent implements OnInit {
   constructor(public menuItemsService: MenuItemsService) { }
 
   ngOnInit(): void {
-    this.menuItemsList = this.menuItemsService.MenuItems
+    this.menuItemsList = this.menuItemsService.AdminMenuItems
   }
   getTranslateKey(keyName: String) {
 

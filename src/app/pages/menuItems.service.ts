@@ -15,18 +15,22 @@ import { BaseAuthService } from '../modules/auth/services/base.auth.service';
   providedIn: 'root'
 })
 export class MenuItemsService {
-  public MenuItems: MenuItem[] = [];
+  public AdminMenuItems: MenuItem[] = [];
+  public ClientMenuItems: MenuItem[] = [];
+
   constructor(private authService: BaseAuthService) {
-    this.MenuItems = [
+    this.AdminMenuItems = [
       {
         isAuthorized: this.authService.isAdmin(),
-        pathName: "/admin/dashboard",
+        pathName: "/",
         heading: false,
-        title: "Dashboard",
-        translateKey: "MENU.DASHBOARD",
-        iconUrl: "./assets/media/svg/icons/General/Bookmark.svg",
+        title: "Home",
+        translateKey: "MENU.HOME",
+        iconUrl: "./assets/media/svg/icons/General/Home.svg",
 
       },
+
+
       {
         isAuthorized: this.authService.isAdmin(),
         pathName: "/admin/accounts",
@@ -73,6 +77,21 @@ export class MenuItemsService {
 
 
     ];
+    this.ClientMenuItems = [
+      {
+        isAuthorized: this.authService.isAdmin(),
+        pathName: "/admin/",
+        heading: false,
+        title: "Dashboard",
+        translateKey: "MENU.DASHBOARD",
+        iconUrl: "./assets/media/svg/icons/General/User.svg",
+
+      },
+
+
+
+    ];
+
   }
 
 

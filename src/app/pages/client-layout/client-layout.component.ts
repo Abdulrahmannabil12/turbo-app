@@ -76,20 +76,17 @@ export class ClientLayoutComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-   
+
     // define layout type and load layout
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const currentLayoutType = this.layout.currentLayoutTypeSubject.value;
-        console.log(event)
+
         const nextLayoutType: LayoutType =
           this.activatedRoute?.firstChild?.snapshot.data.layout ||
           this.layout.getBaseLayoutTypeFromLocalStorage();
+        this.layout.currentLayoutTypeSubject.next(nextLayoutType);
+        this.initService.reInitProps(nextLayoutType);
 
-        if (currentLayoutType !== nextLayoutType || !currentLayoutType) {
-          this.layout.currentLayoutTypeSubject.next(nextLayoutType);
-          this.initService.reInitProps(nextLayoutType);
-        }
       }
     });
   }

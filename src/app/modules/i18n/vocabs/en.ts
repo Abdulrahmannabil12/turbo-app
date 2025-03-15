@@ -13,6 +13,7 @@ export const locale = {
       SETTING: 'Settings',
       USERS: 'Users',
       DASHBOARD: 'Dashboard',
+      HOME: 'Home',
     },
     AUTH: {
       GENERAL: {
