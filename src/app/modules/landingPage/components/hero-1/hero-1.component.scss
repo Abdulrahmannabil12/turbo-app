@@ -1,5 +1,6 @@
 
  
+
 /* --------------------------------------------------------------------------
  * jThemes Studio : RENT IT - Car Rental Management Template
  *
@@ -283,7 +284,7 @@ body {
 }
 
 .page-section.image {
-  background: url('../../../../../assets/media/landing/page-section-image.png') center top no-repeat;
+
   background-attachment: fixed;
   background-size: cover;
 }
@@ -3315,21 +3316,6 @@ input[type=checkbox] {
   }
 }
 
-.main-slider .slide1 {
-  background-image: url('../../../../../assets/media/landing/preview/slider/slide-1.jpg');
-}
-
-.main-slider .slide2 {
-  background-image: url('../../../../../assets/media/landing/preview/slider/slide-1.jpg');
-}
-
-.main-slider .slide3 {
-  background-image: url('../../../../../assets/media/landing/preview/slider/slide-2.jpg');
-}
-
-.main-slider .slide4 {
-  background-image: url('../../../../../assets/media/landing/preview/slider/slide-3.jpg');
-}
 
 .main-slider-row .slider .main-slider .owl-nav [class*=owl-] {
   position: absolute;
@@ -3470,8 +3456,7 @@ input[type=checkbox] {
 }
 
 .coming-soon .main-slider .page {
-  background: transparent url("../../../../../assets/media/landing/preview/slider/slide-3.jpg") no-repeat center center;
-  background-size: cover;
+   background-size: cover;
 }
 
 .coming-soon .main-slider .caption-content {
@@ -3869,8 +3854,7 @@ input[type=checkbox] {
 /* Testimonials carousel / OwlCarousel
 /* ========================================================================== */
 .page-section.testimonials {
-  background: #e9e9e9 url('../../../../../assets/media/landing/transparent-bg.png') center top no-repeat;
-  background-attachment: fixed;
+   background-attachment: fixed;
   background-size: cover;
   padding-bottom: 20px;
 }
@@ -9435,8 +9419,7 @@ input[type=checkbox] {
 /* Contact form
 /* ========================================================================== */
 .page-section.contact {
-  background: url('../../../../../assets/media/landing/preview/page-section-contact-2.jpg') center top no-repeat;
-  background-size: cover;
+   background-size: cover;
 }
 
 .page-section.contact:after {

@@ -15,7 +15,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
 import { ToastrModule } from 'ngx-toastr';
-// #fake-end#
+ // #fake-end#
 
 function appInitializer(authService: AuthService) {
   return () => {
@@ -34,6 +34,7 @@ function appInitializer(authService: AuthService) {
     TranslateModule.forRoot(),
     HttpClientModule,
     ClipboardModule,
+
     // #fake-start#
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
